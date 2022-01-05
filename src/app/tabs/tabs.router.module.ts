@@ -4,26 +4,31 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
+    redirectTo: '/members/job',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'job',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../pages/job/job.module').then(m => m.JobPageModule)
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'offers',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../pages/offers/offers.module').then(m => m.OffersPageModule)
           }
         ]
       },
@@ -36,18 +41,8 @@ const routes: Routes = [
               import('../tab3/tab3.module').then(m => m.Tab3PageModule)
           }
         ]
-      },
-      {
-        path: '',
-        redirectTo: '/tabs/tab1',
-        pathMatch: 'full'
       }
     ]
-  },
-  {
-    path: '',
-    redirectTo: '/tabs/tab1',
-    pathMatch: 'full'
   }
 ];
 

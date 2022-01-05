@@ -1,0 +1,98 @@
+<ion-header>
+  
+<ion-toolbar  color="primary">
+  <ion-buttons slot="secondary">
+    <ion-button>
+      <ion-icon slot="icon-only" name="search"></ion-icon>
+    </ion-button>
+    <ion-button expand="block" (click)="logout()">
+      <ion-icon slot="icon-only" name="exit"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title>Propuesta</ion-title>
+</ion-toolbar>
+  <ion-toolbar>
+    <ion-segment value="niniera" scrollable >
+      <ion-segment-button value="niniera" (click)="changeJob('niniera')" class="segment-button segment-activated">
+        Niniera
+      </ion-segment-button>
+      <ion-segment-button  value="jardinero" (click)="changeJob('jardinero')">
+        Jardinero
+      </ion-segment-button>
+      <ion-segment-button  value="albanil" (click)="changeJob('albanil')">
+        Albanil
+      </ion-segment-button>
+      <ion-segment-button value="mensajero">
+        Mensajero
+      </ion-segment-button>
+      <ion-segment-button value="estilista">
+        Estilista
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  <div [ngSwitch]="job">
+    <div *ngSwitchCase="'jardinero'">
+      <ion-card class="welcome-card">
+        <img src="https://image.freepik.com/vector-gratis/caricatura-hombre-jardinero-diseno-general-plantas-arbustos-jardineria-plantacion-jardines-naturaleza_24911-61212.jpg" alt="" />
+        <ion-card-header>
+          <ion-card-subtitle>Para proponerte como jardinero</ion-card-subtitle>
+          <ion-card-title>Necesitas:</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Tener buen conocimiento sobre botánica.
+            Poder identificar diferentes tipos de plantas y saber la mejor manera de cuidar de cada una, lo que incluye el tamaño que pueden adquirir y cuándo hay que podarlas, por ejemplo.</p>
+            <ion-button  (click) = "openModal('Robin')" expand="block">Publica tu propuesta</ion-button>
+          </ion-card-content>
+      </ion-card>
+    </div>
+    <ion-card class="welcome-card" *ngSwitchCase="'niniera'">
+      <img src="https://www.tutoraround.com/uploads/1/1/7/7/117782982/canguro-en-casa_orig.png" alt="" />
+      <ion-card-header>
+        <ion-card-subtitle>Niniera</ion-card-subtitle>
+        <ion-card-title>Crea una propuesta como niniera</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Now that your app has been created, you'll want to start building out features and components. Check out some
+          of the resources below for next steps.</p>
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="welcome-card" *ngSwitchCase="'albanil'">
+      <img src="https://us.123rf.com/450wm/linnikvalentina/linnikvalentina1808/linnikvalentina180800003/107313640-un-constructor-de-hombre-con-una-paleta-en-la-mano-con-el-tel%C3%B3n-de-fondo-de-un-mont%C3%B3n-de-arena-y-una.jpg?ver=6" alt="" />
+      <ion-card-header>
+        <ion-card-subtitle>Albanil</ion-card-subtitle>
+        <ion-card-title>Albanil</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Now that your app has been created, you'll want to start building out features and components. Check out some
+          of the resources below for next steps.</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  
+
+  <ion-list lines="none">
+    <ion-list-header>
+      <ion-label>Resources</ion-label>
+    </ion-list-header>
+    <ion-item href="https://ionicframework.com/docs/">
+      <ion-icon slot="start" color="medium" name="book"></ion-icon>
+      <ion-label>Ionic Documentation</ion-label>
+    </ion-item>
+    <ion-item href="https://ionicframework.com/docs/building/scaffolding">
+      <ion-icon slot="start" color="medium" name="build"></ion-icon>
+      <ion-label>Scaffold Out Your App</ion-label>
+    </ion-item>
+    <ion-item href="https://ionicframework.com/docs/layout/structure">
+      <ion-icon slot="start" color="medium" name="grid"></ion-icon>
+      <ion-label>Change Your App Layout</ion-label>
+    </ion-item>
+    <ion-item href="https://ionicframework.com/docs/theming/basics">
+      <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
+      <ion-label>Theme Your App</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
