@@ -45,7 +45,7 @@
         <ion-card-content>
           <p>Tener buen conocimiento sobre botánica.
             Poder identificar diferentes tipos de plantas y saber la mejor manera de cuidar de cada una, lo que incluye el tamaño que pueden adquirir y cuándo hay que podarlas, por ejemplo.</p>
-            <ion-button  (click) = "openModal('Robin')" expand="block">Publica tu propuesta</ion-button>
+            <ion-button [routerLink]="['publish-job', 'Jardinero']"  expand="block">Publica tu propuesta</ion-button>
           </ion-card-content>
       </ion-card>
     </div>
@@ -58,6 +58,7 @@
       <ion-card-content>
         <p>Now that your app has been created, you'll want to start building out features and components. Check out some
           of the resources below for next steps.</p>
+          <ion-button [routerLink]="['publish-job', 'Niniera']"  expand="block">Publica tu propuesta</ion-button>
       </ion-card-content>
     </ion-card>
     <ion-card class="welcome-card" *ngSwitchCase="'albanil'">

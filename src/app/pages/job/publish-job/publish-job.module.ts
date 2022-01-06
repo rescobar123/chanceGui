@@ -1,22 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { JobPage } from './job.page';
+import { PublishJobPage } from './publish-job.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: JobPage
-  },
-  {
-    path: 'publish-job/:empleo',
-    loadChildren: () => import('./publish-job/publish-job.module').then(m => m.PublishJobPageModule),
-  },
-
+    component: PublishJobPage
+  }
 ];
 
 @NgModule({
@@ -24,8 +19,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [JobPage],
+  declarations: [PublishJobPage]
 })
-export class JobPageModule {}
+export class PublishJobPageModule {}

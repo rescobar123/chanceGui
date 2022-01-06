@@ -1,0 +1,308 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-back-button defaultHref=""></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Propuesta para: {{empleo}}</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-button (click)="swipePrev()" slot="start">Anterior</ion-button>
+    <ion-button (click)="swipeNext()" slot="end">Siguiente</ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-slides class="scrollVertically" #mySlider>
+    <!--INICIO DE DATOS GENERALES-->
+    <ion-slide>
+      <ion-card>
+        <ion-item>
+          <ion-icon name="document" slot="start"></ion-icon>
+          <ion-label>Datos Generales</ion-label>
+          <ion-button fill="outline" slot="end">?</ion-button>
+        </ion-item>
+        <ion-card-content>
+          This is content, without any paragraph or header tags,
+          within an ion-card-content element.This is content, without any paragraph or header tags,
+          within an ion-card-content element.
+          <form [formGroup]=datosGeneralesForm (ngSubmit)="guardarDatosGenerales(datosGeneralesForm.value)">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12" size-md>
+                  <ion-item>
+                    <ion-label>Puedo trabajar el:</ion-label>
+                    <ion-select multiple="true" cancelText="Cancel" okText="Aceptar">
+                      <ion-select-option value="mushrooms">Lunes</ion-select-option>
+                      <ion-select-option value="onions">Martes</ion-select-option>
+                      <ion-select-option value="pepperoni">Miercoles</ion-select-option>
+                      <ion-select-option value="pineapple">Jueves</ion-select-option>
+                      <ion-select-option value="sausage">Viernes</ion-select-option>
+                      <ion-select-option value="Spinach">Sabado</ion-select-option>
+                      <ion-select-option value="Spinach">Domingo</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+
+              </ion-row>
+              <ion-row>
+                <ion-col size="12" size-md>
+                  <ion-item>
+                    <ion-label position="stacked">Anio Escolar</ion-label>
+                    <ion-input type="number" name="diasLaborables" class="form-control"
+                      formControlName="diasLaborables"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12" size-md>
+                  <ion-item>
+                    <ion-label>Puedo trabajar el:</ion-label>
+                    <ion-select multiple="true" cancelText="Cancel" okText="Aceptar">
+                      <ion-select-option value="mushrooms">Lunes</ion-select-option>
+                      <ion-select-option value="onions">Martes</ion-select-option>
+                      <ion-select-option value="pepperoni">Miercoles</ion-select-option>
+                      <ion-select-option value="pineapple">Jueves</ion-select-option>
+                      <ion-select-option value="sausage">Viernes</ion-select-option>
+                      <ion-select-option value="Spinach">Sabado</ion-select-option>
+                      <ion-select-option value="Spinach">Domingo</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+
+              </ion-row>
+              <ion-row>
+                <ion-col size="12" size-md>
+                  <ion-item>
+                    <ion-label position="stacked">Anio Escolar</ion-label>
+                    <ion-input type="number" name="diasLaborables" class="form-control"
+                      formControlName="diasLaborables"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12" size-md>
+                  <ion-item>
+                    <ion-label>Puedo trabajar el:</ion-label>
+                    <ion-select multiple="true" cancelText="Cancel" okText="Aceptar">
+                      <ion-select-option value="mushrooms">Lunes</ion-select-option>
+                      <ion-select-option value="onions">Martes</ion-select-option>
+                      <ion-select-option value="pepperoni">Miercoles</ion-select-option>
+                      <ion-select-option value="pineapple">Jueves</ion-select-option>
+                      <ion-select-option value="sausage">Viernes</ion-select-option>
+                      <ion-select-option value="Spinach">Sabado</ion-select-option>
+                      <ion-select-option value="Spinach">Domingo</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+
+              </ion-row>
+              <ion-row>
+                <ion-col size="12" size-md>
+                  <ion-item>
+                    <ion-label position="stacked">Anio Escolar</ion-label>
+                    <ion-input type="number" name="diasLaborables" class="form-control"
+                      formControlName="diasLaborables"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </form>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <!--FIN DE DATOS GENERALES-->
+    <ion-slide>
+      <ion-card>
+        <ion-item>
+          <ion-icon name="pin" slot="start"></ion-icon>
+          <ion-label>Puedo Trabajar en:</ion-label>
+          <ion-button fill="outline" slot="end">?</ion-button>
+        </ion-item>
+        <ion-card-content>
+          <form [formGroup]=datosGeneralesForm (ngSubmit)="guardarDatosGenerales(datosGeneralesForm.value)">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="6" size-md>
+            <ion-item>
+              <ion-label class="my-label">Guatemala:</ion-label>
+              <ion-select multiple="true" cancelText="Cancel" okText="Aceptar">
+                <ion-select-option value="mushrooms">San Jose pinula</ion-select-option>
+                <ion-select-option value="onions">Guatemala</ion-select-option>
+                <ion-select-option value="pepperoni">Santa Catarina Pinula</ion-select-option>
+                <ion-select-option value="pineapple">Jueves</ion-select-option>
+                <ion-select-option value="sausage">Viernes</ion-select-option>
+                <ion-select-option value="Spinach">Sabado</ion-select-option>
+                <ion-select-option value="Spinach">Domingo</ion-select-option>
+              </ion-select>
+            </ion-item>
+            </ion-col>
+            <ion-col size="6" size-md>
+            <ion-item>
+              <ion-label class="my-label">Santa Rosa:</ion-label>
+              <ion-select multiple="true" cancelText="Cancel" okText="Aceptar">
+                <ion-select-option value="mushrooms">San Jose pinula</ion-select-option>
+                <ion-select-option value="onions">Guatemala</ion-select-option>
+                <ion-select-option value="pepperoni">Santa Catarina Pinula</ion-select-option>
+                <ion-select-option value="pineapple">Jueves</ion-select-option>
+                <ion-select-option value="sausage">Viernes</ion-select-option>
+                <ion-select-option value="Spinach">Sabado</ion-select-option>
+                <ion-select-option value="Spinach">Domingo</ion-select-option>
+              </ion-select>
+            </ion-item>
+            </ion-col>
+            <ion-col size="6" size-md>
+            <ion-item>
+              <ion-label class="my-label">Escuintla:</ion-label>
+              <ion-select multiple="true" cancelText="Cancel" okText="Aceptar">
+                <ion-select-option value="mushrooms">San Jose pinula</ion-select-option>
+                <ion-select-option value="onions">Guatemala</ion-select-option>
+                <ion-select-option value="pepperoni">Santa Catarina Pinula</ion-select-option>
+                <ion-select-option value="pineapple">Jueves</ion-select-option>
+                <ion-select-option value="sausage">Viernes</ion-select-option>
+                <ion-select-option value="Spinach">Sabado</ion-select-option>
+                <ion-select-option value="Spinach">Domingo</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6" size-md>
+            <ion-item>
+              <ion-label>Escuintla:</ion-label>
+              <ion-select multiple="true" cancelText="Cancel" okText="Aceptar">
+                <ion-select-option value="mushrooms">San Jose pinula</ion-select-option>
+                <ion-select-option value="onions">Guatemala</ion-select-option>
+                <ion-select-option value="pepperoni">Santa Catarina Pinula</ion-select-option>
+                <ion-select-option value="pineapple">Jueves</ion-select-option>
+                <ion-select-option value="sausage">Viernes</ion-select-option>
+                <ion-select-option value="Spinach">Sabado</ion-select-option>
+                <ion-select-option value="Spinach">Domingo</ion-select-option>
+              </ion-select>
+            </ion-item>
+            </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6" size-md>
+          <ion-item>
+            <ion-label>Guatemala:</ion-label>
+            <ion-select multiple="true" cancelText="Cancel" okText="Aceptar">
+              <ion-select-option value="mushrooms">San Jose pinula</ion-select-option>
+              <ion-select-option value="onions">Guatemala</ion-select-option>
+              <ion-select-option value="pepperoni">Santa Catarina Pinula</ion-select-option>
+              <ion-select-option value="pineapple">Jueves</ion-select-option>
+              <ion-select-option value="sausage">Viernes</ion-select-option>
+              <ion-select-option value="Spinach">Sabado</ion-select-option>
+              <ion-select-option value="Spinach">Domingo</ion-select-option>
+            </ion-select>
+          </ion-item>
+          </ion-col>
+          <ion-col size="6" size-md>
+          <ion-item>
+            <ion-label>Santa Rosa:</ion-label>
+            <ion-select multiple="true" cancelText="Cancel" okText="Aceptar">
+              <ion-select-option value="mushrooms">San Jose pinula</ion-select-option>
+              <ion-select-option value="onions">Guatemala</ion-select-option>
+              <ion-select-option value="pepperoni">Santa Catarina Pinula</ion-select-option>
+              <ion-select-option value="pineapple">Jueves</ion-select-option>
+              <ion-select-option value="sausage">Viernes</ion-select-option>
+              <ion-select-option value="Spinach">Sabado</ion-select-option>
+              <ion-select-option value="Spinach">Domingo</ion-select-option>
+            </ion-select>
+          </ion-item>
+          </ion-col>
+          <ion-col size="6" size-md>
+          <ion-item>
+            <ion-label>Escuintla:</ion-label>
+            <ion-select multiple="true" cancelText="Cancel" okText="Aceptar">
+              <ion-select-option value="mushrooms">San Jose pinula</ion-select-option>
+              <ion-select-option value="onions">Guatemala</ion-select-option>
+              <ion-select-option value="pepperoni">Santa Catarina Pinula</ion-select-option>
+              <ion-select-option value="pineapple">Jueves</ion-select-option>
+              <ion-select-option value="sausage">Viernes</ion-select-option>
+              <ion-select-option value="Spinach">Sabado</ion-select-option>
+              <ion-select-option value="Spinach">Domingo</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6" size-md>
+          <ion-item>
+            <ion-label>Escuintla:</ion-label>
+            <ion-select multiple="true" cancelText="Cancel" okText="Aceptar">
+              <ion-select-option value="mushrooms">San Jose pinula</ion-select-option>
+              <ion-select-option value="onions">Guatemala</ion-select-option>
+              <ion-select-option value="pepperoni">Santa Catarina Pinula</ion-select-option>
+              <ion-select-option value="pineapple">Jueves</ion-select-option>
+              <ion-select-option value="sausage">Viernes</ion-select-option>
+              <ion-select-option value="Spinach">Sabado</ion-select-option>
+              <ion-select-option value="Spinach">Domingo</ion-select-option>
+            </ion-select>
+          </ion-item>
+          </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6" size-md>
+        <ion-item>
+          <ion-label>Guatemala:</ion-label>
+          <ion-select multiple="true" cancelText="Cancel" okText="Aceptar">
+            <ion-select-option value="mushrooms">San Jose pinula</ion-select-option>
+            <ion-select-option value="onions">Guatemala</ion-select-option>
+            <ion-select-option value="pepperoni">Santa Catarina Pinula</ion-select-option>
+            <ion-select-option value="pineapple">Jueves</ion-select-option>
+            <ion-select-option value="sausage">Viernes</ion-select-option>
+            <ion-select-option value="Spinach">Sabado</ion-select-option>
+            <ion-select-option value="Spinach">Domingo</ion-select-option>
+          </ion-select>
+        </ion-item>
+        </ion-col>
+    </ion-row>
+            </ion-grid>
+
+          </form>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-item>
+          <ion-icon name="time" slot="start"></ion-icon>
+          <ion-label>Horarios Disponibles</ion-label>
+          <ion-button fill="outline" slot="end">?</ion-button>
+        </ion-item>
+
+        <ion-card-content>
+          This is content, without any paragraph or header tags,
+          within an ion-card-content element.
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-item href="#" class="ion-activated">
+          <ion-icon name="wifi" slot="start"></ion-icon>
+          <ion-label>Card Link Item 1 activated</ion-label>
+        </ion-item>
+
+        <ion-item href="#">
+          <ion-icon name="wine" slot="start"></ion-icon>
+          <ion-label>Card Link Item 2</ion-label>
+        </ion-item>
+
+        <ion-item class="ion-activated">
+          <ion-icon name="warning" slot="start"></ion-icon>
+          <ion-label>Card Button Item 1 activated</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="walk" slot="start"></ion-icon>
+          <ion-label>Card Button Item 2</ion-label>
+        </ion-item>
+      </ion-card>
+    </ion-slide>
+
+  </ion-slides>
+  
+</ion-content>
