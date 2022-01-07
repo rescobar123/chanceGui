@@ -58,7 +58,7 @@ export class AuthService {
         if (res.tipo == "success"){
           return res.jwt.jwt;
         }else{
-          return null;
+          return "null";
         }
       }),
       switchMap(token => {
