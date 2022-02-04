@@ -1,0 +1,70 @@
+[
+    {
+        "Nombre": "Alta Verapaz",
+        "Municipios": [
+            {
+                "NombreMunicipio": "Cahabón",
+                "IdMunicipio": 1
+            },
+            {
+                "NombreMunicipio": "Chisec",
+                "IdMunicipio": 2
+            },
+            {
+                "NombreMunicipio": "Cobán",
+                "IdMunicipio": 3
+            },
+            {
+                "NombreMunicipio": "Lanquín",
+                "IdMunicipio": 4
+            },
+            {
+                "NombreMunicipio": "Panzós",
+                "IdMunicipio": 5
+            },
+            {
+                "NombreMunicipio": "Raxruha",
+                "IdMunicipio": 6
+            },
+            {
+                "NombreMunicipio": "CahSan Cristóbal Verapaz",
+                "IdMunicipio": 7
+            },
+            {
+                "NombreMunicipio": "San Juan Chamelco",
+                "IdMunicipio": 8
+            },
+            {
+                "NombreMunicipio": "San Pedro Carchá",
+                "IdMunicipio": 9
+            },
+            {
+                "NombreMunicipio": "Santa Cruz Verapaz",
+                "IdMunicipio": 10
+            },
+            {
+                "NombreMunicipio": "Senahú",
+                "IdMunicipio": 11
+            },{
+                "NombreMunicipio": "Tactic",
+                "IdMunicipio": 12
+            },{
+                "NombreMunicipio": "Tamahú",
+                "IdMunicipio": 13
+            },{
+                "NombreMunicipio": "Tucurú",
+                "IdMunicipio": 14
+            },
+            {
+                "NombreMunicipio": "Santa Catarina La Tinta",
+                "IdMunicipio": 15
+            },
+            {
+                "NombreMunicipio": "Fray Bartolomé de las Casas",
+                "IdMunicipio": 16
+            }
+
+        ]
+
+    }
+]

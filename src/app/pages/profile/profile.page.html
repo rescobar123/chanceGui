@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" size-md>
+        <img
+          src="https://w7.pngwing.com/pngs/956/783/png-transparent-computer-icons-female-youtube-woman-avatar-business-woman-face-black-hair-head.png">
+      </ion-col>
+      <ion-col size="6" size-md>
+        <ion-row>
+          <ion-col size="12" size-md="12">
+            <ion-item>
+              <ion-label color="primary" text-center position="stacked" text-center>Nombres:</ion-label>
+              <ion-input required type="text" value="Robin Erberto" name="precioEstimadoHora" class="form-control"
+                ></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="12" size-md="12">
+            <ion-item>
+              <ion-label color="primary" text-center position="stacked" text-center>Apellidos:</ion-label>
+              <ion-input required type="text" value="Escobar Solis" name="precioEstimadoHora" class="form-control"
+                ></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6" size-md>
+        <ion-item>
+          <ion-label color="primary" text-center position="stacked" text-center>Direccion:</ion-label>
+          <ion-input required type="text" value="Caniadas de san Jose, san jose pinula" name="precioEstimadoHora" class="form-control"
+            ></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6" size-md>
+        <ion-item>
+          <ion-label color="primary" text-center position="stacked" text-center>Edad:</ion-label>
+          <ion-input required type="text" value="27 anios" name="precioEstimadoHora" class="form-control"
+            ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6" size-md>
+        <ion-item>
+          <ion-label color="primary" text-center position="stacked" text-center>Profesion:</ion-label>
+          <ion-input required type="text" value="Perito Contador" name="precioEstimadoHora" class="form-control"
+            ></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6" size-md>
+        <ion-item>
+          <ion-label color="primary" text-center position="stacked" text-center>Genero:</ion-label>
+          <ion-input required type="text" value="Masculino" name="precioEstimadoHora" class="form-control"
+            ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" size-md>
+        <ion-item>
+          <ion-button expand="full" (click)="f.click()">
+            <ion-icon lazy="true" slot="start" name="attach"></ion-icon>
+            <ion-label slot="end">Actualiza tu CV...</ion-label>
+          </ion-button>
+          <input  (change)="fileChange($event)" class="ion-hide" #f
+            type="file" accept="image/png, image/jpeg">
+        </ion-item>
+        <img width="50%" *ngIf="img1" [src]="img1" />
+        <br>
+        <input *ngIf="img1" name="certificado" class="form-control" type="hidden">
+      </ion-col>
+    </ion-row>
+      <h3>Carencia de Problemas judiciales</h3>
+
+    <ion-row>
+      <ion-col size="12" size-md>
+        <ion-item>
+          <ion-button expand="full" (click)="f.click()">
+            <ion-icon lazy="true" slot="start" name="attach"></ion-icon>
+            <ion-label slot="end">Actualiza antecedentes penales...</ion-label>
+          </ion-button>
+          <input  (change)="fileChange($event)" class="ion-hide" #f
+            type="file" accept="image/png, image/jpeg">
+        </ion-item>
+        <img width="50%" *ngIf="img1" [src]="img1" />
+        <br>
+        <input *ngIf="img1" name="certificado" class="form-control" type="hidden">
+      </ion-col>
+      <ion-col size="12" size-md>
+        <ion-item>
+          <ion-button expand="full" (click)="f.click()">
+            <ion-icon lazy="true" slot="start" name="attach"></ion-icon>
+            <ion-label slot="end">Actualiza antecedentes policiacos...</ion-label>
+          </ion-button>
+          <input  (change)="fileChange($event)" class="ion-hide" #f
+            type="file" accept="image/png, image/jpeg">
+        </ion-item>
+        <img width="50%" *ngIf="img1" [src]="img1" />
+        <br>
+        <input *ngIf="img1" name="certificado" class="form-control" type="hidden">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

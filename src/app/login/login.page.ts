@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
   credentials = {
-    email: 'admin',
+    email: 'robinsolises@hotmail.com',
     pw: 'admin'
   };
 

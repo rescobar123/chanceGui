@@ -1,18 +1,28 @@
+import { UsuarioI } from './Usuario.Interface';
 export interface EmpleoI{
-    datosGenerales?: DatosGeneralesI,
-    datosUbicacion?: DatosUbicacionI,
-    datosConocimiento?: DatosConocimientoI,
+    idPropuesta?: number,
+    idTipoPropuesta?: number,
+    diasLaborables?: string,
+    disponibilidad?: string,
+    precioPorHora?: string,
+    lugaresLaborables?: string, 
+    descripcion?: string,
+    fechaPropuesta?: string,
+    estado?: number,
+    certificado?:number,
+    usuarioCreo?: UsuarioI,
 }  
 
 
 export interface DatosGeneralesI{
   disponibilidad?: number,
-  horario?: string,
   diasLaborables?: string,
+  tipoEmpleo?: string,
+  precioEstimadoHora?: number;
 }  
 
 export interface DatosUbicacionI{
-    departamentos?: string,
+    municipios?: string,
 }  
 
 export interface DatosConocimientoI{

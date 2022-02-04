@@ -11,7 +11,11 @@ const routes: Routes = [
   {
     path: '',
     component: OffersPage
-  }
+  },
+  {
+    path: 'chek-offer/:idOferta',
+    loadChildren: () => import('./chek-offer/chek-offer.module').then(m => m.ChekOfferPageModule),
+  },
 ];
 
 @NgModule({

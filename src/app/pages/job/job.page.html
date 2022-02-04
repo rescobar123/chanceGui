@@ -1,80 +1,99 @@
 <ion-header>
-  
-<ion-toolbar  color="primary">
-  <ion-buttons slot="secondary">
-    <ion-button>
-      <ion-icon slot="icon-only" name="search"></ion-icon>
-    </ion-button>
-    <ion-button expand="block" (click)="logout()">
-      <ion-icon slot="icon-only" name="exit"></ion-icon>
-    </ion-button>
-  </ion-buttons>
-  <ion-title>Propuesta</ion-title>
-</ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="secondary">
+      <ion-button expand="block" (click)="logout()">
+        <ion-icon slot="icon-only" name="exit"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Chance</ion-title>
+  </ion-toolbar>
   <ion-toolbar>
-    <ion-segment value="niniera" scrollable >
-      <ion-segment-button value="niniera" (click)="changeJob('niniera')" class="segment-button segment-activated">
-        Niniera
+    <ion-segment value="propuesta" scrollable>
+      <ion-segment-button value="propuesta" (click)="changeJob('propuesta')" class="segment-button segment-activated">
+        Propuesta
       </ion-segment-button>
-      <ion-segment-button  value="jardinero" (click)="changeJob('jardinero')">
-        Jardinero
+      <ion-segment-button value="misPropuestas" (click)="changeJob('misPropuestas')">
+        Mis propuestas
       </ion-segment-button>
-      <ion-segment-button  value="albanil" (click)="changeJob('albanil')">
-        Albanil
-      </ion-segment-button>
-      <ion-segment-button value="mensajero">
-        Mensajero
-      </ion-segment-button>
-      <ion-segment-button value="estilista">
-        Estilista
+      <ion-segment-button value="empleosDisponibles" (click)="changeJob('empleosDisponibles')">
+        Buscar Trabajo
+        <ion-icon name="search"></ion-icon>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
- 
   <div [ngSwitch]="job">
-    <div *ngSwitchCase="'jardinero'">
-      <ion-card class="welcome-card">
-        <img src="https://image.freepik.com/vector-gratis/caricatura-hombre-jardinero-diseno-general-plantas-arbustos-jardineria-plantacion-jardines-naturaleza_24911-61212.jpg" alt="" />
-        <ion-card-header>
-          <ion-card-subtitle>Para proponerte como jardinero</ion-card-subtitle>
-          <ion-card-title>Necesitas:</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <p>Tener buen conocimiento sobre botánica.
-            Poder identificar diferentes tipos de plantas y saber la mejor manera de cuidar de cada una, lo que incluye el tamaño que pueden adquirir y cuándo hay que podarlas, por ejemplo.</p>
-            <ion-button [routerLink]="['publish-job', 'Jardinero']"  expand="block">Publica tu propuesta</ion-button>
-          </ion-card-content>
-      </ion-card>
-    </div>
-    <ion-card class="welcome-card" *ngSwitchCase="'niniera'">
-      <img src="https://www.tutoraround.com/uploads/1/1/7/7/117782982/canguro-en-casa_orig.png" alt="" />
+    <ion-card class="welcome-card" *ngSwitchCase="'propuesta'">
+      <img
+        src="https://thumbs.dreamstime.com/z/uniforme-del-grupo-trabajador-de-los-personajes-dibujos-animados-d%C3%ADa-trabajo-108735449.jpg"
+        alt="" />
       <ion-card-header>
-        <ion-card-subtitle>Niniera</ion-card-subtitle>
-        <ion-card-title>Crea una propuesta como niniera</ion-card-title>
+        <ion-card-title>Que debo hacer?</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some
-          of the resources below for next steps.</p>
-          <ion-button [routerLink]="['publish-job', 'Niniera']"  expand="block">Publica tu propuesta</ion-button>
+        <p>Simplemente has click en el boton de "Crear mi propuesta" llena los campos requidos y listo, recuerda que
+          puedes crear las propuestas que desees de los trabajos que puedes desempeniar, ademas puedes buscar en la
+          pestania de "Buscar Empleo" para ver si hay personas requiriendo algun empleo especifico.</p><br>
+        <ion-button [routerLink]="['publish-job', 'empleo']" color="success" expand="block">Crea tu propuesta <ion-icon
+            name="create"></ion-icon>
+        </ion-button>
       </ion-card-content>
     </ion-card>
-    <ion-card class="welcome-card" *ngSwitchCase="'albanil'">
-      <img src="https://us.123rf.com/450wm/linnikvalentina/linnikvalentina1808/linnikvalentina180800003/107313640-un-constructor-de-hombre-con-una-paleta-en-la-mano-con-el-tel%C3%B3n-de-fondo-de-un-mont%C3%B3n-de-arena-y-una.jpg?ver=6" alt="" />
-      <ion-card-header>
-        <ion-card-subtitle>Albanil</ion-card-subtitle>
-        <ion-card-title>Albanil</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some
-          of the resources below for next steps.</p>
-      </ion-card-content>
+    <div *ngSwitchCase="'misPropuestas'">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" size-md>
+            <ion-card class="welcome-card">
+              <img
+                src="https://image.freepik.com/vector-gratis/caricatura-hombre-jardinero-diseno-general-plantas-arbustos-jardineria-plantacion-jardines-naturaleza_24911-61212.jpg"
+                alt="" />
+              <ion-card-content>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col size="6" size-md>
+                      <ion-fab-button size="small" color="danger">
+                        <ion-icon name="trash"></ion-icon>
+                      </ion-fab-button>
+                    </ion-col>
+                    <ion-col size="6" size-md>
+                      <ion-fab-button size="small" color="secondary">
+                        <ion-icon name="create"></ion-icon>
+                      </ion-fab-button>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </div>
+    <ion-card class="welcome-card" *ngSwitchCase="'empleosDisponibles'">
+      <ion-list>
+        <ion-list-header>
+          Ofertas de empleo publicadas.
+        </ion-list-header>
+        <ion-item   >
+          <ion-avatar slot="start">
+            <img src="https://w7.pngwing.com/pngs/956/783/png-transparent-computer-icons-female-youtube-woman-avatar-business-woman-face-black-hair-head.png">
+          </ion-avatar>
+          <ion-label>
+            <h2>Mario Castanieda</h2>
+            <h3>Quiere tu servicio como niniera</h3>
+            <p>Hola Margot me gusto tu servicio de niniera podrias porfavor decirme que dias puedes</p>
+            <ion-button [routerLink]="['chek-offer', 'idOferta']">Revisar <ion-icon
+              name="eye"></ion-icon>
+            </ion-button>
+          </ion-label>
+          
+        </ion-item>
+
+      </ion-list>
     </ion-card>
   </div>
-  
-
   <ion-list lines="none">
     <ion-list-header>
       <ion-label>Resources</ion-label>

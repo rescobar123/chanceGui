@@ -16,7 +16,7 @@ export class JobPage implements OnInit {
   }
 
   ngOnInit() {
-    this.job = "niniera";
+    this.job = "propuesta";
   }
   ionViewWillEnter() {
     this.user = this.auth.getUser();

@@ -1,12 +1,115 @@
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
     <ion-title>Register</ion-title>
   </ion-toolbar>
 </ion-header>
- 
-<ion-content padding>
- 
+
+<ion-content>
+  <form [formGroup]=registerForm (ngSubmit)="registrarUser(registerForm.value)">
+    <ion-grid>
+      <div class="ion-text-center">
+        <h3>Crea tu cuenta!</h3>
+      </div>
+      <ion-row color="primary" justify-content-center>
+        <ion-col size size-md="6">
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Nombres</ion-label>
+            <ion-input name="nombres" placeholder="Mario Carlos" class="form-control" formControlName="nombres" type="text"
+              required></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size size-md="6">
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Apellidos</ion-label>
+            <ion-input name="apellidos" placeholder="Juarez Perez" class="form-control" formControlName="apellidos" type="text"
+              required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row><ion-row color="primary" justify-content-center>
+        <ion-col size size-md="6">
+          <ion-item>
+            <ion-label color="primary"  position="stacked" class="ion-text-center">Email</ion-label>
+            <ion-input name="email" formControlName="email" type="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              placeholder="ejemplo@chance.com" required></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size size-md="6">
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Direccion</ion-label>
+            <ion-input name="direccion" placeholder="4ta. Ave. 13-15 zona 21" formControlName="direccion" type="text" class="form-control"
+               required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row><ion-row color="primary" justify-content-center>
+        <ion-col size size-md="6">
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Fecha de Nacimiento</ion-label>
+            <ion-input name="fechaNacimiento" formControlName="fechaNacimiento" type="date" class="form-control"
+              placeholder="Fecha de Nacimiento" required></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size size-md="6">
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Educacion</ion-label>
+            <ion-select required name="educacion" class="form-control" formControlName="educacion" value="default"
+              okText="Aceptar" cancelText="Cancelar">
+              <ion-select-option selected value="default" disable>--Elija una--</ion-select-option>
+              <ion-select-option value="Primaria">Primaria</ion-select-option>
+              <ion-select-option value="Basica">Basica</ion-select-option>
+              <ion-select-option value="Diversificado">Diversificado</ion-select-option>
+              <ion-select-option value="Universitaria">Universitaria</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row><ion-row color="primary" justify-content-center>
+        <ion-col size size-md="6">
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Genero</ion-label>
+            <ion-select required name="genero" class="form-control" formControlName="genero" value="default"
+              okText="Aceptar" cancelText="Cancelar">
+              <ion-select-option value="default">--Elija uno--</ion-select-option>
+              <ion-select-option value="M">M</ion-select-option>
+              <ion-select-option value="F">F</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col size size-md="6">
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Vacuna contra covid</ion-label>
+            <ion-select required name="vacunaCovid" class="form-control" formControlName="vacunaCovid" value="default"
+              okText="Aceptar" cancelText="Cancelar">
+              <ion-select-option value="default">--Seleccione--</ion-select-option>
+              <ion-select-option value="">Sin vacuna</ion-select-option>
+              <ion-select-option value="F">Primera Dosis</ion-select-option>
+              <ion-select-option value="F">Segunda Dosis</ion-select-option>
+              <ion-select-option value="F">Tercera Dosis</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row><ion-row color="primary" justify-content-center>
+        <ion-col size size-md="6">
+          <ion-item>
+            <ion-input name="password" class="form-control" formControlName="password" type="password"
+              placeholder="Contrasenña" required></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size size-md="6">
+          <ion-item>
+            <ion-input name="confirm" class="form-control" formControlName="confirm" type="password"
+              placeholder="Confirma tu contraseña" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row><ion-row color="primary" justify-content-center>
+        <ion-col size size-md="12">
+
+          <ion-button size="large" color="success" type="submit" [disabled]="registerForm.invalid" expand="block">Crear uenta
+          </ion-button>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>

@@ -5,61 +5,68 @@
         <ion-back-button defaultHref=""></ion-back-button>
       </ion-button>
     </ion-buttons>
-    <ion-title>Propuesta para: {{empleo}}</ion-title>
+    <ion-title>Propuesta de trabajo:</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
 
-  <ion-slides class="scrollVertically" #mySlider>
+  <ion-slides  #mySlider>
     <!--INICIO DE DATOS GENERALES-->
     <ion-slide>
       <ion-card>
         <ion-item>
           <ion-icon name="document" slot="start"></ion-icon>
-          <ion-label>Datos Generales</ion-label>
+          <ion-label color="primary">Datos Generales</ion-label>
           <ion-button fill="outline" slot="end">?</ion-button>
 
         </ion-item>
         <ion-card-content>
-          Los campos marcados con un asterisco de color rojo son obligatorios, pero ten en cuenta que si los llenas
-          tienes mas posibilidad de encontrar empleo en lugares o con personas un poco mas estrictas.
-          <form [formGroup]=datosGeneralesForm (ngSubmit)="guardarDatosGenerales(datosGeneralesForm.value)">
-            <ion-grid>
-              <ion-row>
-                <ion-col size="12" size-md>
-                  <ion-item>
-                    <ion-label>Dias que puedo laborar:</ion-label>
-                    <ion-select name="diasLaborables" class="form-control" formControlName="diasLaborables"
-                      multiple="true" cancelText="Cancel" okText="Aceptar">
-                      <ion-select-option value="Lunes">Lunes</ion-select-option>
-                      <ion-select-option value="Martes">Martes</ion-select-option>
-                      <ion-select-option value="Miercoles">Miercoles</ion-select-option>
-                      <ion-select-option value="Jueves">Jueves</ion-select-option>
-                      <ion-select-option value="Viernes">Viernes</ion-select-option>
-                      <ion-select-option value="Sabado">Sabado</ion-select-option>
-                      <ion-select-option value="Domingo">Domingo</ion-select-option>
-                    </ion-select>
-                  </ion-item>
-                </ion-col>
-                <ion-col size="12" size-md>
-                  <ion-item>
-                    <ion-label>Tu Disponibilidad</ion-label>
-                    <ion-select name="disponibilidad" class="form-control" formControlName="disponibilidad"
-                      value="brown" okText="Aceptar" cancelText="Cancelar">
-                      <ion-select-option value="Inmediata">Inmediata</ion-select-option>
-                      <ion-select-option value="5">En 5 Dias</ion-select-option>
-                      <ion-select-option value="10">En 10 Dias</ion-select-option>
-                      <ion-select-option value="15">En 15 Dias</ion-select-option>
-                    </ion-select>
-                  </ion-item>
-                </ion-col>
-              </ion-row>
-              <ion-row>
+          <p style="background-color: honeydew;"> Los campos marcados con un asterisco de color rojo son obligatorios,
+            pero ten en cuenta que si los llenas
+            tienes mas posibilidad de encontrar empleo en lugares o con personas un poco mas estrictas.</p>
+          <form class="formScroll" [formGroup]=datosGeneralesForm (ngSubmit)="guardarDatosGenerales(datosGeneralesForm.value)">
+            <ion-item>
+              <ion-label color="primary" position="stacked" class="ion-text-center">De que quiero trabajar</ion-label>
+              <ion-select  required name="tipoEmpleo" class="form-control " formControlName="tipoEmpleo" value="brown"
+                okText="Aceptar" cancelText="Cancelar">
+                <ion-select-option *ngFor="let tipoEmpleo of tiposEmpleos" value="{{tipoEmpleo.idTipoEmpleo}}">{{ tipoEmpleo.nombreEmpleo}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label color="primary" position="stacked" class="ion-text-center">Que dias quiero laborar:</ion-label>
+              <ion-select required name="diasLaborables" class="form-control " formControlName="diasLaborables"
+                multiple="true" cancelText="Cancel" okText="Aceptar">
+                <ion-select-option value="Lunes">Lunes</ion-select-option>
+                <ion-select-option value="Martes">Martes</ion-select-option>
+                <ion-select-option value="Miercoles">Miercoles</ion-select-option>
+                <ion-select-option value="Jueves">Jueves</ion-select-option>
+                <ion-select-option value="Viernes">Viernes</ion-select-option>
+                <ion-select-option value="Sabado">Sabado</ion-select-option>
+                <ion-select-option value="Domingo">Domingo</ion-select-option>
+              </ion-select>
+            </ion-item>
 
-              </ion-row>
-            </ion-grid>
+            <ion-item>
+              <ion-label color="primary" position="stacked" class="ion-text-center" >Mi Disponibilidad</ion-label>
+              <ion-select required name="disponibilidad" class="form-control" formControlName="disponibilidad"
+                value="brown" okText="Aceptar" cancelText="Cancelar">
+                <ion-select-option value="Inmediata">Inmediata</ion-select-option>
+                <ion-select-option value="5">En 5 Dias</ion-select-option>
+                <ion-select-option value="10">En 10 Dias</ion-select-option>
+                <ion-select-option value="15">En 15 Dias</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="primary" position="stacked" class="ion-text-center">Quiero recibir por hora(Aprox. en
+                Quetzales)</ion-label>
+              <ion-input required type="number" name="precioEstimadoHora" class="form-control "
+                formControlName="precioEstimadoHora"></ion-input>
+            </ion-item>
+
             <ion-label slot="end">1 de 3</ion-label><br>
-            <ion-button color="tertiary" type="submit">Siguiente <ion-icon name="arrow-forward">
+            <ion-button color="tertiary" [disabled]="datosGeneralesForm.invalid" type="submit">Siguiente <ion-icon
+                name="arrow-forward">
               </ion-icon>
             </ion-button>
           </form>
@@ -73,60 +80,29 @@
       <ion-card>
         <ion-item>
           <ion-icon name="pin" slot="start"></ion-icon>
-          <ion-label>Puedo Trabajar en:</ion-label>
+          <ion-label color="primary">Puedo Trabajar en:</ion-label>
           <ion-button fill="outline" slot="end">?</ion-button>
         </ion-item>
         <ion-card-content>
-          <form [formGroup]=datosUbicacionForm (ngSubmit)="guardarDatosGenerales(datosUbicacionForm.value)">
+          <p style="background-color: honeydew;"> Puedes elegir los lugares donde puedes trabajar, puedes elegir cuantos quieras siempre y cuando tener el cuenta la disponibilidad de viajar.</p>
+          <form class="formScroll" [formGroup]=datosUbicacionForm
+            (ngSubmit)="guardarDatosLugares(datosUbicacionForm.value)">
             <ion-grid>
               <ion-row>
-                <ion-col size="6" size-md>
+                <ion-col size="12" *ngFor="let deptoMuni of departamentosMunicipios" size-md>
                   <ion-item>
-                    <ion-label class="my-label">Guatemala:</ion-label>
-                    <ion-select multiple="true" cancelText="Cancel" okText="Aceptar">
-                      <ion-select-option value="mushrooms">San Jose pinula</ion-select-option>
-                      <ion-select-option value="onions">Guatemala</ion-select-option>
-                      <ion-select-option value="pepperoni">Santa Catarina Pinula</ion-select-option>
-                      <ion-select-option value="pineapple">Jueves</ion-select-option>
-                      <ion-select-option value="sausage">Viernes</ion-select-option>
-                      <ion-select-option value="Spinach">Sabado</ion-select-option>
-                      <ion-select-option value="Spinach">Domingo</ion-select-option>
-                    </ion-select>
-                  </ion-item>
-                </ion-col>
-                <ion-col size="6" size-md>
-                  <ion-item>
-                    <ion-label class="my-label">Santa Rosa:</ion-label>
-                    <ion-select multiple="true" cancelText="Cancel" okText="Aceptar">
-                      <ion-select-option value="mushrooms">San Jose pinula</ion-select-option>
-                      <ion-select-option value="onions">Guatemala</ion-select-option>
-                      <ion-select-option value="pepperoni">Santa Catarina Pinula</ion-select-option>
-                      <ion-select-option value="pineapple">Jueves</ion-select-option>
-                      <ion-select-option value="sausage">Viernes</ion-select-option>
-                      <ion-select-option value="Spinach">Sabado</ion-select-option>
-                      <ion-select-option value="Spinach">Domingo</ion-select-option>
-                    </ion-select>
-                  </ion-item>
-                </ion-col>
-                <ion-col size="6" size-md>
-                  <ion-item>
-                    <ion-label class="my-label">Escuintla:</ion-label>
-                    <ion-select multiple="true" cancelText="Cancel" okText="Aceptar">
-                      <ion-select-option value="mushrooms">San Jose pinula</ion-select-option>
-                      <ion-select-option value="onions">Guatemala</ion-select-option>
-                      <ion-select-option value="pepperoni">Santa Catarina Pinula</ion-select-option>
-                      <ion-select-option value="pineapple">Jueves</ion-select-option>
-                      <ion-select-option value="sausage">Viernes</ion-select-option>
-                      <ion-select-option value="Spinach">Sabado</ion-select-option>
-                      <ion-select-option value="Spinach">Domingo</ion-select-option>
+                    <ion-label color="primary"  position="stacked" class="ion-text-center" >{{deptoMuni.Nombre}}</ion-label>
+                    <ion-select required multiple="true" name="municipios" class="form-control "
+                      formControlName="municipios" value="brown" okText="Aceptar" cancelText="Cancelar">
+                      <ion-select-option *ngFor="let municipio of deptoMuni.Municipios" value="{{municipio.IdMunicipio}}">{{municipio.NombreMunicipio}}</ion-select-option>
                     </ion-select>
                   </ion-item>
                 </ion-col>
               </ion-row>
-
             </ion-grid>
             <ion-label slot="end">2 de 3</ion-label><br>
-            <ion-button color="tertiary" type="submit">Siguiente <ion-icon name="arrow-forward">
+            <ion-button color="tertiary" type="submit" [disabled]="datosUbicacionForm.invalid">Siguiente <ion-icon
+                name="arrow-forward">
               </ion-icon>
             </ion-button>
           </form>
@@ -140,26 +116,36 @@
       <ion-card>
         <ion-item>
           <ion-icon name="ribbon" slot="start"></ion-icon>
-          <ion-label>Certificaciones y conocimiento</ion-label>
+          <ion-label color="primary">Certificaciones y conocimiento</ion-label>
           <ion-button fill="outline" slot="end">?</ion-button>
         </ion-item>
         <ion-card-content>
-          Las certificaciones NO SON OBLIGATORIAS, pero si tienes alguna la puedes subir en este espacio, puedes
-          aumentar la posibilidad de obtener empleo si cuentas con una.
-          <form [formGroup]=certificacionesForm (ngSubmit)="publicarPropuesta(certificacionesForm.value)">
+          <p style="background-color: honeydew;">Las certificaciones NO SON OBLIGATORIAS, pero si tienes alguna la
+            puedes subir en este espacio, puedes
+            aumentar la posibilidad de obtener empleo si cuentas con una.</p>
+          <form class="formScroll" [formGroup]=certificacionesForm (ngSubmit)="publicarPropuesta(certificacionesForm.value)">
             <ion-item>
-              <ion-input name="certificado" class="form-control" formControlName="certificado" type="file"
-                accept="image/*" (change)="changeListener($event)"></ion-input>
+              <ion-button expand="full" (click)="f.click()">
+                <ion-icon lazy="true" slot="start" name="attach"></ion-icon>
+                <ion-label slot="end">Adjuntar Certificado...</ion-label>
+              </ion-button>
+              <input   (change)="fileChange($event)" class="ion-hide" #f
+                type="file" accept="image/png, image/jpeg">
             </ion-item>
+            <img width="25%" *ngIf="img1" [src]="img1" />
             <br>
-            <br>
-            <ion-label position="floating">Cuenta mas de ti y tu experiencia como {{empleo}}...</ion-label>
+            <input name="certificado" class="form-control" formControlName="certificado" *ngIf="img1" value="{{img1}}" />
+            
             <ion-item>
-              <ion-textarea  name="descripcion" class="form-control" formControlName="descripcion" rows="8">
+              <ion-label color="primary"  position="stacked" class="ion-text-center" >Cuenta mas de ti y tu experiencia
+                como {{empleo}}...</ion-label>
+              <ion-textarea class="ion-text-center" required name="descripcion" class="form-control" formControlName="descripcion"
+                rows="4">
               </ion-textarea>
             </ion-item>
             <ion-label slot="end">3 de 3</ion-label><br>
-            <ion-button type="submit" color="success">Publicar propuesta</ion-button>
+            <ion-button type="submit" [disabled]="certificacionesForm.invalid" color="success">Publicar propuesta
+            </ion-button>
           </form>
 
         </ion-card-content>

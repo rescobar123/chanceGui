@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵɵsetComponentScope } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
 import { Platform } from '@ionic/angular';
@@ -11,7 +11,7 @@ import { UsuarioI } from '../models/Usuario.Interface';
 
 const helper = new JwtHelperService();
 const TOKEN_KEY = 'jwt-token';
-const URL:string = "http://192.168.0.9:9090/backendChance/WS/Usuario/"
+const URL:string = "http://192.168.0.12:9090/backendChance/WS/Usuario/"
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,12 @@ export class AuthService {
     private plt: Platform, private router: Router) {
       this.loadStoredToken();
   }
+
+  insertarUsuario(form:UsuarioI):Observable<AlertI>{
+    let direccion = URL + "insertar";
+    console.log(direccion);
+    return this.http.put<AlertI>(direccion, form);
+   }
 
   loadStoredToken() {
     let platformObs = from(this.plt.ready());
@@ -49,7 +55,7 @@ export class AuthService {
 
   login(credentials: {email: string, pw: string}): Observable<any> {
     let url = URL + 'login';
-    let usuario = '{"nick": "'+credentials.email + '", "password": "'+credentials.pw +'"}';
+    let usuario = '{"email": "'+credentials.email + '", "password": "'+credentials.pw +'"}';
     usuario = JSON.parse(usuario);
 
     return this.http.put<AlertI>(url,usuario).pipe(
@@ -73,7 +79,9 @@ export class AuthService {
   }
 
   getUser() {
-    return this.userData.getValue();
+    let infoUser:any;
+    infoUser=this.userData.getValue();   
+    return infoUser;
   }
 
   logout() {
