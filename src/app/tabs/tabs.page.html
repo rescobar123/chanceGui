@@ -1,5 +1,24 @@
-<ion-tabs>
+<ion-tabs *ngIf="user.rol == 'admin'">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="job">
+      <ion-icon name="briefcase"></ion-icon>
+      <ion-label>Propuesta</ion-label>
+    </ion-tab-button>
 
+    <ion-tab-button tab="offers">
+      <ion-icon name="document"></ion-icon>
+      <ion-badge color="success">5</ion-badge>
+      <ion-label>Ofertas</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+
+<ion-tabs *ngIf="user.rol == 'empleado'">
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="job">
       <ion-icon name="briefcase"></ion-icon>
@@ -19,3 +38,24 @@
   </ion-tab-bar>
 
 </ion-tabs>
+
+<ion-tabs *ngIf="user.rol == 'empleador'">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="findPersons">
+      <ion-icon name="briefcase"></ion-icon>
+      <ion-label>Personas Disponibles</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="publiOfert">
+      <ion-icon name="document"></ion-icon>
+      <ion-badge color="success">5</ion-badge>
+      <ion-label>Publicar Oferta</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Mi Perfil</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+

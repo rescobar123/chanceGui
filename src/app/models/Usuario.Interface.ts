@@ -1,5 +1,5 @@
 export interface UsuarioI{
-    idusuario?: number,
+    idUsuario?: number,
     email?: string,
     password?: string,
     nombres?:string,

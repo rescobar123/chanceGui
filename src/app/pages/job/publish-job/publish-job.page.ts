@@ -18,7 +18,6 @@ import { UsuarioI } from '../../../models/Usuario.Interface';
 
 export class PublishJobPage implements OnInit {
   @ViewChild('mySlider',null)  slides: IonSlides;
-  public empleo:string;
   public user:any;
   public departamentosMunicipios:any;
   public datosGenerales:DatosGeneralesI;
@@ -53,7 +52,6 @@ export class PublishJobPage implements OnInit {
 
   ngOnInit() {
     this.departamentosMunicipios =  this.wsRecursos.getAllLugares();
-    this.empleo = this.activeRouter.snapshot.paramMap.get("empleo");
     this.wsRecursos.getAllTiposEmpleos().subscribe(data=>{
       this.tiposEmpleos = data;
       console.log(this.tiposEmpleos);

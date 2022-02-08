@@ -1,0 +1,29 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Tu Oferta: </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form>
+        <ion-item>
+          <ion-label position="stacked">Precio por Hora</ion-label>
+          <ion-input type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Desde</ion-label>
+          <ion-input type="date"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Hasta</ion-label>
+          <ion-input type="date"></ion-input>
+        </ion-item>
+      </form>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-fab color="danger" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger"  (click)="closeModal()">
+      <ion-icon name="close-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

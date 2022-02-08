@@ -9,7 +9,7 @@ export interface EmpleoI{
     descripcion?: string,
     fechaPropuesta?: string,
     estado?: number,
-    certificado?:number,
+    certificado?:string,
     usuarioCreo?: UsuarioI,
 }  
 

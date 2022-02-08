@@ -1,6 +1,6 @@
 import { Injectable, ɵɵsetComponentScope } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -30,6 +30,8 @@ export class AuthService {
     console.log(direccion);
     return this.http.put<AlertI>(direccion, form);
    }
+  
+
 
   loadStoredToken() {
     let platformObs = from(this.plt.ready());
@@ -43,7 +45,6 @@ export class AuthService {
         console.log('Token from storage: ', token);
         if (token) {
           let decoded = helper.decodeToken(token);
-          console.log('decoded: ', decoded);
           this.userData.next(decoded);
           return true;
         } else {
@@ -83,6 +84,15 @@ export class AuthService {
     infoUser=this.userData.getValue();   
     return infoUser;
   }
+
+  findUser(idUsuario: any):Observable<UsuarioI>{
+    let direccion = URL + "user";
+    console.log(idUsuario);
+    const params = new HttpParams()
+
+    .set('idUsuario' , idUsuario);
+    return this.http.get<UsuarioI>(direccion, { params});
+   } 
 
   logout() {
     this.storage.remove(TOKEN_KEY).then(() => {

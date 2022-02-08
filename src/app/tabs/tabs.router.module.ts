@@ -5,7 +5,7 @@ import { TabsPage } from './tabs.page';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/members/job',
+    redirectTo: '/chance/job',
     pathMatch: 'full'
   },
   {
@@ -42,6 +42,26 @@ const routes: Routes = [
           }
         ]
       },
+      {
+        path: 'findPersons',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pages-buscador/buscar/buscar.module').then(m => m.BuscarPageModule)
+          }
+        ]
+      },
+      {
+        path: 'publiOfert',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pages-buscador/buscar/buscar.module').then(m => m.BuscarPageModule)
+          }
+        ]
+      },
     ]
   }
 ];
@@ -50,4 +70,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

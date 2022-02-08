@@ -11,11 +11,18 @@ import { AppComponent } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 
+import { JobPageModule } from './pages/job/job.module';
+import { BuscarPageModule } from './pages-buscador/buscar/buscar.module';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule,
     HttpClientModule,
+    JobPageModule,
+    BuscarPageModule,
     IonicStorageModule.forRoot()
   ],
   providers: [

@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
     this.auth.login(this.credentials).subscribe(async res => {
       console.log('login return: ', res);
       if (res) {
-        this.router.navigateByUrl('/members');
+        this.router.navigateByUrl('/chance');
       } else {
         const alert = await this.alertCtrl.create({
           header: 'Fallo al iniciar Sesion',

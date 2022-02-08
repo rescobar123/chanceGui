@@ -4,7 +4,7 @@ import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'members',
+    path: 'chance',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
     canActivate: [AuthGuard]
   },
@@ -16,7 +16,7 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule)
   },
-  { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' },
+  { path: 'publicar-oferta', loadChildren: './pages-buscador/publicar-oferta/publicar-oferta.module#PublicarOfertaPageModule' }
 ];
 @NgModule({
   imports: [
