@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
+import { EmpleoI } from '../../../models/Empleo.Interface';
 
 @Component({
   selector: 'app-contratar-modal',
@@ -7,13 +8,13 @@ import { NavParams, ModalController } from '@ionic/angular';
   styleUrls: ['./contratar-modal.component.scss'],
 })
 export class ContratarModalComponent implements OnInit {
-  private idPropuesta:number;
+  private propuesta:EmpleoI;
   constructor(
     private navParams: NavParams,
     private modal: ModalController,) { 
     
-      this.idPropuesta = navParams.get('idPropuesta');
-    console.log(this.idPropuesta);
+    this.propuesta = navParams.get('propuesta');
+    console.log(this.propuesta);
   }
 
   ngOnInit() {}

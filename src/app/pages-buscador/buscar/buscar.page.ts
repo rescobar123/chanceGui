@@ -30,7 +30,8 @@ export class BuscarPage implements OnInit {
   ngOnInit() {
     this.user = this.auth.getUser();
     let idUser:string = this.user.usuario.idUsuario;
-    this.propuestaService.getAllPropuestasWithUserTipoEmpleo().subscribe(data=>{
+    let idPropuesta = 0;
+    this.propuestaService.getAllPropuestasWithUserTipoEmpleo(idPropuesta).subscribe(data=>{
       this.empleos = data;
       console.log(this.empleos);
     });
@@ -59,7 +60,7 @@ export class BuscarPage implements OnInit {
     const modal = await this.modalController.create({
     component: ContratarModalComponent,
     componentProps: {
-      'idPropuesta': empleado.idPropuesta,
+      'propuesta': empleado,
     }
     });
     return await modal.present();

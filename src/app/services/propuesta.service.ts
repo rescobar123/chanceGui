@@ -45,8 +45,10 @@ export class PropuestaService {
     return this.http.get<EmpleoI[]>(direccion, { params });
   }
 
-  getAllPropuestasWithUserTipoEmpleo(): Observable<EmpleoI[]> {
+  getAllPropuestasWithUserTipoEmpleo(idPropuesta: any): Observable<EmpleoI[]> {
     let direccion = URL + "propCreadas";
-    return this.http.get<EmpleoI[]>(direccion);
+    const params = new HttpParams()
+    .set('idPropuesta', idPropuesta);
+    return this.http.get<EmpleoI[]>(direccion, {params});
   }
 }

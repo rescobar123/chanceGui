@@ -1,28 +1,65 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Tu Oferta: </ion-card-title>
+      <ion-card-title>Tu Oferta para {{ propuesta.usuarioCreo.nombres }} : </ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <form>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="stacked">Precio por Hora que Ofreces (Q.)</ion-label>
+                <ion-input type="number"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-card-subtitle>Fechas</ion-card-subtitle>
+          <ion-row>
+            <ion-col size="6" size-md="6">
+              <ion-item>
+                <ion-label position="stacked">Desde</ion-label>
+                <ion-input type="date"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6" size-md="6">
+              <ion-item>
+                <ion-label position="stacked">Hasta</ion-label>
+                <ion-input type="date"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <br>
+          <ion-card-subtitle>Horario</ion-card-subtitle>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="stacked">Desde</ion-label>
+                <ion-input type="time"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label position="stacked">Hasta</ion-label>
+                <ion-input type="time"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
         <ion-item>
-          <ion-label position="stacked">Precio por Hora</ion-label>
-          <ion-input type="number"></ion-input>
+          <ion-label position="stacked">Complementa tu oferta</ion-label>
+          <ion-textarea></ion-textarea>
         </ion-item>
-        <ion-item>
-          <ion-label position="stacked">Desde</ion-label>
-          <ion-input type="date"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="stacked">Hasta</ion-label>
-          <ion-input type="date"></ion-input>
-        </ion-item>
+        <ion-button color="success">
+          Enviar oferta
+          <ion-icon slot="end" name="card"></ion-icon>
+        </ion-button>
       </form>
     </ion-card-content>
   </ion-card>
-  
+
   <ion-fab color="danger" vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="danger"  (click)="closeModal()">
+    <ion-fab-button color="danger" (click)="closeModal()">
       <ion-icon name="close-circle"></ion-icon>
     </ion-fab-button>
   </ion-fab>
