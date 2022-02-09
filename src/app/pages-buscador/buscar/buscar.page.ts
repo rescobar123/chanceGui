@@ -7,6 +7,7 @@ import { AlertController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { PropuestaModalComponent } from './propuesta-modal/propuesta-modal.component';
 import { ContratarModalComponent } from './contratar-modal/contratar-modal.component';
+import { AdmobService } from '../../services/publicidad/admob.service';
 @Component({
   selector: 'app-buscar',
   templateUrl: './buscar.page.html',
@@ -23,11 +24,13 @@ export class BuscarPage implements OnInit {
     private propuestaService: PropuestaService,
     private alertService:AlertService,
     private auth: AuthService,
-    public alertController: AlertController,
-    public modalController: ModalController
+    private alertController: AlertController,
+    private modalController: ModalController,
+    private admobService:AdmobService, 
     ) { }
 
   ngOnInit() {
+    this.admobService.MostrarBanner();
     this.user = this.auth.getUser();
     let idUser:string = this.user.usuario.idUsuario;
     let idPropuesta = 0;

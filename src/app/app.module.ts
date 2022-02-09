@@ -4,15 +4,18 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
-
+//Creados
 import { JobPageModule } from './pages/job/job.module';
 import { BuscarPageModule } from './pages-buscador/buscar/buscar.module';
+
+
+//Admob free
+import { AdMobFree } from '@ionic-native/admob-free/ngx';
+import { AdmobService } from './services/publicidad/admob.service';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -26,6 +29,8 @@ import { BuscarPageModule } from './pages-buscador/buscar/buscar.module';
     IonicStorageModule.forRoot()
   ],
   providers: [
+    AdMobFree,
+    AdmobService,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
