@@ -8,10 +8,11 @@ import { Observable, BehaviorSubject, from, of } from 'rxjs';
 import { take, map, switchMap } from 'rxjs/operators';
 import { AlertI } from '../models/complements/AlertI';
 import { UsuarioI } from '../models/Usuario.Interface';
+import { environment } from '../../environments/environment';
 
 const helper = new JwtHelperService();
 const TOKEN_KEY = 'jwt-token';
-const URL:string = "http://192.168.0.12:9090/backendChance/WS/Usuario/"
+const URL:string = environment.ws+ "Usuario/"
 
 @Injectable({
   providedIn: 'root'
@@ -89,7 +90,6 @@ export class AuthService {
     let direccion = URL + "user";
     console.log(idUsuario);
     const params = new HttpParams()
-
     .set('idUsuario' , idUsuario);
     return this.http.get<UsuarioI>(direccion, { params});
    } 

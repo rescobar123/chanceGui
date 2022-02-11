@@ -13,17 +13,18 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let empleo of empleos" size="12" size-md="12">
-        <ion-card  class="welcome-card">
+        <ion-card style="border-radius: 12px;" class="welcome-card">
           <ion-card-content>
             <ion-grid>
               <ion-row>
                 <ion-col size="6" size-md="6">
-                  <img style="width: 100px; border-radius: 12px;" src="{{empleo.usuarioCreo.foto}}" alt="" />
+                  <img style="width: 60%; border-radius: 6px;" src="{{empleo.usuarioCreo.foto}}" alt="" />
                   <ion-card-subtitle>{{ empleo.usuarioCreo.nombres | uppercase }} {{ empleo.usuarioCreo.apellidos |
                     uppercase}}</ion-card-subtitle>
                   <ion-card-title>{{ empleo.descripcion | uppercase}}</ion-card-title>
                 </ion-col>
                 <ion-col size="6" size-md="6">
+                
                   <b>Disponibilidad: </b> {{ empleo.disponibilidad}} <br>
                   <b>Creada: </b> {{ empleo.fechaPropuesta}} <br>
                   <b>Deseado por hora: </b> Q.{{ empleo.precioPorHora}} <br>

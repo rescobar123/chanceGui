@@ -4,6 +4,7 @@ import { UsuarioI } from '../models/Usuario.Interface';
 import { AlertService } from '../services/alert.service';
 import { AuthService } from '../services/auth.service';
 import { AlertI } from '../models/complements/AlertI';
+import { RecursosService } from '../services/recursos.service';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,8 @@ import { AlertI } from '../models/complements/AlertI';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-
+  public img1: any = 0;
+  public cv: any = 0;
   registerForm = new FormGroup({
     nombres:  new FormControl(''),
     apellidos: new FormControl(''),
@@ -28,7 +30,10 @@ export class RegisterPage implements OnInit {
     cv: new FormControl(''),
 });
 
-  constructor(private alertService:AlertService, private wsUsuario:AuthService) { }
+  constructor(
+    private alertService:AlertService, 
+    private wsUsuario:AuthService,
+    private wsRecurso:RecursosService) { }
 
   ngOnInit() {
   }
@@ -40,10 +45,16 @@ export class RegisterPage implements OnInit {
       return this.alertService.presentAlertMultipleButtons("Oops!!", "Las credenciales no coinciden", "Error");
     }
     form.rol = "empleado";
-    form.foto = "";
-    form.cv = "";
+    var cvImagen = document.getElementById("cvImagen");
+    var fotoImagen = document.getElementById("fotoImagen");
+    
+    let cvImagenResized =this.wsRecurso.resizeImage(cvImagen);
+    let fotoImagenResized = this.wsRecurso.resizeImage(fotoImagen);
+
+    form.foto = fotoImagenResized;
+    form.cv = cvImagenResized;
     usuario = form;
-    console.log(usuario);
+    console.log(form.foto);
     this.wsUsuario.insertarUsuario(usuario).subscribe( data => {
       let alerta:AlertI = data;
       if(alerta.tipo == "success"){
@@ -56,4 +67,33 @@ export class RegisterPage implements OnInit {
     });
 
   }
+
+  fileChange(event) {
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+      reader.onload = (event:any) => {
+        this.img1 = event.target.result;
+        //console.log(this.img1);
+      }
+      reader.readAsDataURL(event.target.files[0]);  // to trigger onload
+    }
+    let fileList: FileList = event.target.files;  
+    let file: File = fileList[0];
+    console.log(file);
+  }
+
+  fileChangeCv(event) {
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+      reader.onload = (event:any) => {
+        this.cv = event.target.result;
+        //console.log(this.img1);
+      }
+      reader.readAsDataURL(event.target.files[0]);  // to trigger onload
+    }
+    let fileList: FileList = event.target.files;  
+    let file: File = fileList[0];
+    console.log(file);
+  }
+
 }

@@ -34,7 +34,7 @@ export class BuscarPage implements OnInit {
     this.user = this.auth.getUser();
     let idUser:string = this.user.usuario.idUsuario;
     let idPropuesta = 0;
-    this.propuestaService.getAllPropuestasWithUserTipoEmpleo(idPropuesta).subscribe(data=>{
+    this.propuestaService.getAllPropuestasWithUserTipoEmpleo(idPropuesta, 0).subscribe(data=>{
       this.empleos = data;
       console.log(this.empleos);
     });

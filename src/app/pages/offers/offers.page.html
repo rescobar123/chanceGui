@@ -1,34 +1,19 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>
-      Ofertas
-    </ion-title>
-  </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-card>
-    <ion-card-content>
-      <ion-list>
-        <ion-list-header>
-          Ofertas Recientes
-        </ion-list-header>
-        <ion-item   >
-          <ion-avatar slot="start">
-            <img src="https://w7.pngwing.com/pngs/956/783/png-transparent-computer-icons-female-youtube-woman-avatar-business-woman-face-black-hair-head.png">
-          </ion-avatar>
-          <ion-label>
-            <h2>Mario Castanieda</h2>
-            <h3>Quiere tu servicio como niniera</h3>
-            <p>Hola Margot me gusto tu servicio de niniera podrias porfavor decirme que dias puedes</p>
-            <ion-button [routerLink]="['chek-offer', 'idOferta']">Revisar <ion-icon
-              name="eye"></ion-icon>
-            </ion-button>
-          </ion-label>
-          
-        </ion-item>
-
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
- 
+  <ion-list>
+    <ion-list-header> Ofertas recientes...  </ion-list-header>
+    <div color="light">
+      <ion-item  style="border-radius: 12px;" *ngFor="let oferta of ofertas"  [routerLink]="['chek-offer', oferta.idOferta, oferta.propuesta.idPropuesta]">
+        <ion-avatar slot="start">
+          <img src="https://w7.pngwing.com/pngs/956/783/png-transparent-computer-icons-female-youtube-woman-avatar-business-woman-face-black-hair-head.png" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{oferta.usuario.nombres +' ' +oferta.usuario.apellidos | uppercase }}  <p style="font-size: 60%; color: gray;">{{oferta.fechaCreacion | date: 'medium' }}</p> </h2>
+          <h3>Se ha fijado en ti</h3>
+          <p>{{oferta.complemento}}</p>
+        </ion-label>
+      </ion-item>
+    </div>
+    </ion-list>
 </ion-content>

@@ -13,7 +13,7 @@ const routes: Routes = [
     component: OffersPage
   },
   {
-    path: 'chek-offer/:idOferta',
+    path: 'chek-offer/:idOferta/:idPropuesta',
     loadChildren: () => import('./chek-offer/chek-offer.module').then(m => m.ChekOfferPageModule),
   },
 ];

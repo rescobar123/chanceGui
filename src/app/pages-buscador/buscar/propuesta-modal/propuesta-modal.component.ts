@@ -40,8 +40,6 @@ export class PropuestaModalComponent implements OnInit {
     private modal: ModalController,
     ) {
     this.empleo = navParams.get('empleado');
-      
-   
    }
 
   ngOnInit() {
@@ -66,6 +64,37 @@ export class PropuestaModalComponent implements OnInit {
 
   previusSlide(){
     this.slides.slidePrev();
+  }
+
+  descargarFoto(){
+    const linkSource = this.empleo.usuarioCreo.foto;
+    const downloadLink = document.createElement("a");
+    const fileName = "fotografia.png";
+  
+    downloadLink.href = linkSource;
+    downloadLink.download = fileName;
+    downloadLink.click();
+   
+  }
+
+  descargarCertificado(propuestaCertificado:any){
+    const linkSource = propuestaCertificado;
+    const docoto = document.createElement("a");
+    const fileName = "certificado.png";
+  
+    docoto.href = linkSource;
+    docoto.download = fileName;
+    docoto.click();
+  }
+
+  descargarCv(){
+    const linkSource = this.empleo.usuarioCreo.cv;
+    const downloadLink = document.createElement("a");
+    const fileName = "penales.png";
+  
+    downloadLink.href = linkSource;
+    downloadLink.download = fileName;
+    downloadLink.click();
   }
 
 

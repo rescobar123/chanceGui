@@ -23,7 +23,7 @@ export class PublishJobPage implements OnInit {
   public datosGenerales:DatosGeneralesI;
   public datosCertificado:DatosConocimientoI;
   public datosUbicacion:DatosUbicacionI;
-  public img1: any;
+  public img1: any = 0;
   public tiposEmpleos:TipoEmpleoI[]=[];
   file: File;
    slideOpts = {
@@ -74,7 +74,10 @@ export class PublishJobPage implements OnInit {
   }
   publicarPropuesta(form:DatosConocimientoI){
     this.datosCertificado = form;
-    let propuesta:string = '{ "certificado": "'+this.img1+'", "descripcion": "'+this.datosCertificado.descripcion+'", "diasLaborables": "'+this.datosGenerales.diasLaborables+'", "disponibilidad" : "'+this.datosGenerales.disponibilidad+'", "idTipoPropuesta": "'+this.datosGenerales.tipoEmpleo+'", "lugaresLaborables": "'+this.datosUbicacion.municipios+'", "precioPorHora": "'+this.datosGenerales.precioEstimadoHora+'", "usuarioCreo": {"idUsuario": '+this.user.usuario.idUsuario+' } }';
+    var img = document.getElementById("fo");
+    let imgResized = this.wsRecursos.resizeImage(img);
+
+    let propuesta:string = '{ "certificado": "'+imgResized+'", "descripcion": "'+this.datosCertificado.descripcion+'", "diasLaborables": "'+this.datosGenerales.diasLaborables+'", "disponibilidad" : "'+this.datosGenerales.disponibilidad+'", "idTipoPropuesta": "'+this.datosGenerales.tipoEmpleo+'", "lugaresLaborables": "'+this.datosUbicacion.municipios+'", "precioPorHora": "'+this.datosGenerales.precioEstimadoHora+'", "usuarioCreo": {"idUsuario": '+this.user.usuario.idUsuario+' } }';
     let propuestaOb:EmpleoI;
     propuestaOb = JSON.parse(propuesta);
     
@@ -114,7 +117,6 @@ export class PublishJobPage implements OnInit {
       console.log('Uploaded a blob or file!');
     });*/
   }
-
   fileChange(event) {
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();

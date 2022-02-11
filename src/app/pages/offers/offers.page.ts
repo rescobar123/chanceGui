@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { AlertController } from '@ionic/angular';
+import { OfertaService } from '../../services/oferta.service';
+import { OfertaI } from '../../models/Oferta.Interface';
 
 @Component({
   selector: 'app-offers',
@@ -9,27 +11,18 @@ import { AlertController } from '@ionic/angular';
 })
 export class OffersPage implements OnInit {
   user = null;
-  constructor(private auth: AuthService, private alertCtrl: AlertController,) { }
-
- /* ionViewWillEnter() {
-    this.user = this.auth.getUser();
-  }
-
-  logout() {
-    this.auth.logout();
-  }
-*/
+  public ofertas:OfertaI[]=[];
+  public visto:boolean = true;
+  public noVisto:boolean=false;
+  constructor(
+    private alertCtrl: AlertController,
+    private ofertaService:OfertaService
+    ) { }
   ngOnInit() {
-  }
-  unread(){
-    this.presentAlertMultipleButtons("Ya", "Estuvo", "Suave");
-  }
-  async presentAlertMultipleButtons(titulo:string, mensaje:string, error:string) {
-    const alert = await this.alertCtrl.create({
-      header: titulo,
-      message: mensaje,
-      buttons: ['Aceptar']
+    this.ofertaService.getAllOfertasByIdUser().subscribe(data=>{
+      this.ofertas = data;
+      
+      console.log(this.ofertas);
     });
-    await alert.present();
   }
 }

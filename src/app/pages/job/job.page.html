@@ -10,10 +10,10 @@
   <ion-toolbar>
     <ion-segment value="propuesta" scrollable>
       <ion-segment-button value="propuesta" (click)="changeJob('propuesta')" class="segment-button segment-activated">
-        Propuesta
+        Inicio
       </ion-segment-button>
       <ion-segment-button value="misPropuestas" (click)="changeJob('misPropuestas')">
-        Mis propuestas
+        Publicadas
       </ion-segment-button>
       <ion-segment-button value="empleosDisponibles" (click)="changeJob('empleosDisponibles')">
         Buscar Trabajo
@@ -35,8 +35,8 @@
       <ion-card-content>
         <p>Simplemente has click en el boton de "Crear mi propuesta" llena los campos requidos y listo, recuerda que
           puedes crear las propuestas que desees de los trabajos que puedes desempeniar, ademas puedes buscar en la
-          pestania de "Buscar Empleo" para ver si hay personas requiriendo algun empleo especifico.</p><br>
-        <ion-button [routerLink]="['publish-job', 'empleo']" color="success" expand="block">Crea tu propuesta <ion-icon
+          pestania de "Quiero Trabajar" para ver si hay personas requiriendo algun empleo especifico.</p><br>
+        <ion-button [routerLink]="['publish-job', 'empleo']" color="success" expand="block">Quiero Trabajar <ion-icon
             name="create"></ion-icon>
         </ion-button>
       </ion-card-content>

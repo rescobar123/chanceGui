@@ -3,9 +3,10 @@ import { EmpleoI } from '../models/Empleo.Interface';
 import { AlertI } from '../models/complements/AlertI';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 
-const URL: string = "http://192.168.0.12:9090/backendChance/WS/propuesta/"
+const URL: string = environment.ws + "propuesta/"
 @Injectable({
   providedIn: 'root'
 })
@@ -45,10 +46,12 @@ export class PropuestaService {
     return this.http.get<EmpleoI[]>(direccion, { params });
   }
 
-  getAllPropuestasWithUserTipoEmpleo(idPropuesta: any): Observable<EmpleoI[]> {
+  getAllPropuestasWithUserTipoEmpleo(idPropuesta: any, idUsuario:any): Observable<EmpleoI[]> {
     let direccion = URL + "propCreadas";
+    console.log(idUsuario);
     const params = new HttpParams()
-    .set('idPropuesta', idPropuesta);
+    .set('idPropuesta', idPropuesta)
+    .set('idUsuario', idUsuario);
     return this.http.get<EmpleoI[]>(direccion, {params});
   }
 }

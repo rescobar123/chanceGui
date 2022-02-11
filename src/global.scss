@@ -42,9 +42,16 @@
 
   }
 
-  .empleadocss .alert-wrapper{
-    min-width: 90%;
+  .modal-wrapper{
+    min-width: 80%;
     border-radius: 12px;
+}
+
+.modal-wrapper.sc-ion-modal-md{
+
+  min-width: 80%;
+  border-radius: 12px;
+  height: 80%;
 }
 
 

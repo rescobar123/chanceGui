@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="tertiary">
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
@@ -82,14 +82,16 @@
             <ion-select required name="vacunaCovid" class="form-control" formControlName="vacunaCovid" value="default"
               okText="Aceptar" cancelText="Cancelar">
               <ion-select-option value="default">--Seleccione--</ion-select-option>
-              <ion-select-option value="">Sin vacuna</ion-select-option>
-              <ion-select-option value="F">Primera Dosis</ion-select-option>
-              <ion-select-option value="F">Segunda Dosis</ion-select-option>
-              <ion-select-option value="F">Tercera Dosis</ion-select-option>
+              <ion-select-option value="Sin vacuna">Sin vacuna</ion-select-option>
+              <ion-select-option value="Primera Dosis">Primera Dosis</ion-select-option>
+              <ion-select-option value="Segunda Dosis">Segunda Dosis</ion-select-option>
+              <ion-select-option value="Tercera Dosis">Tercera Dosis</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-col>
-      </ion-row><ion-row color="primary" justify-content-center>
+      </ion-row>
+      
+      <ion-row color="primary" justify-content-center>
         <ion-col size size-md="6">
           <ion-item>
             <ion-input name="password" class="form-control" formControlName="password" type="password"
@@ -102,10 +104,48 @@
               placeholder="Confirma tu contraseña" required></ion-input>
           </ion-item>
         </ion-col>
-      </ion-row><ion-row color="primary" justify-content-center>
+      </ion-row>
+      <h3>Documentos (NO OBLIGATORIOS)</h3>
+      <p>Estos documentos no son obligatorios, pero si los subes te daran una mejor posibilidad de encontrar chance</p>
+      <ion-row>
+        <ion-col size size-md="12">
+          <ion-item>
+            <ion-button expand="full" (click)="foto.click()">
+              <ion-icon lazy="true" slot="start" name="attach"></ion-icon>
+              <ion-label slot="end">Fotografia...</ion-label>
+            </ion-button>
+            <input   (change)="fileChange($event)" class="ion-hide" #foto
+              type="file" accept="image/png, image/jpeg">
+          </ion-item>
+        </ion-col>
+        <ion-col   size-md="12">
+          <img id="fotoImagen" style="display: block; margin: auto;" width="45%" *ngIf="img1" [src]="img1"/>
+          <br>
+          <input hidden name="foto" class="form-control" formControlName="foto" *ngIf="img1" value="{{img1}}" />
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col  size-md="12">
+          <ion-item>
+            <ion-button expand="full" (click)="ccv.click()">
+              <ion-icon lazy="true" slot="start" name="attach"></ion-icon>
+              <ion-label slot="end">Antecedentes Penales...</ion-label>
+            </ion-button>
+            <input   (change)="fileChangeCv($event)" class="ion-hide" #ccv
+              type="file" accept="image/png, image/jpeg">
+          </ion-item>
+        </ion-col>
+        <ion-col   size-md="12">
+          <img id="cvImagen" style="display: block; margin: auto;" width="45%" *ngIf="cv" [src]="cv"/>
+          <br>
+          <input hidden name="cv" class="form-control" formControlName="cv" *ngIf="cv" value="{{cv}}" />
+        </ion-col>
+      </ion-row>
+
+      <ion-row color="primary" justify-content-center>
         <ion-col size size-md="12">
 
-          <ion-button size="large" color="success" type="submit" [disabled]="registerForm.invalid" expand="block">Crear uenta
+          <ion-button size="large" color="success" type="submit" [disabled]="registerForm.invalid" expand="block">Crear
           </ion-button>
         </ion-col>
 

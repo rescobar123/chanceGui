@@ -51,9 +51,9 @@
               <ion-select required name="disponibilidad" class="form-control" formControlName="disponibilidad"
                 value="brown" okText="Aceptar" cancelText="Cancelar">
                 <ion-select-option value="Inmediata">Inmediata</ion-select-option>
-                <ion-select-option value="5">En 5 Dias</ion-select-option>
-                <ion-select-option value="10">En 10 Dias</ion-select-option>
-                <ion-select-option value="15">En 15 Dias</ion-select-option>
+                <ion-select-option value="5 Dias">En 5 Dias</ion-select-option>
+                <ion-select-option value="10 Dias">En 10 Dias</ion-select-option>
+                <ion-select-option value="15 Dias">En 15 Dias</ion-select-option>
               </ion-select>
             </ion-item>
 
@@ -132,9 +132,9 @@
               <input   (change)="fileChange($event)" class="ion-hide" #f
                 type="file" accept="image/png, image/jpeg">
             </ion-item>
-            <img width="25%" *ngIf="img1" [src]="img1" />
+            <img id="fo" width="25%" *ngIf="img1" [src]="img1" />
             <br>
-            <input name="certificado" class="form-control" formControlName="certificado" *ngIf="img1" value="{{img1}}" />
+            <input name="certificado" type="hidden" class="form-control" formControlName="certificado" *ngIf="img1" value="{{img1}}" />
             
             <ion-item>
               <ion-label color="primary"  position="stacked" class="ion-text-center" >Cuenta mas de ti y tu experiencia
