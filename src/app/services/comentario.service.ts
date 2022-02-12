@@ -22,8 +22,9 @@ export class ComentarioService {
   }
 
   postComentario(form: ComentarioI): Observable<AlertI> {
+    form.idComentario = form.propuesta.idPropuesta;
     let direccion = URL + "insertar";
-    console.log(direccion);
+    console.log(form);
     return this.http.put<AlertI>(direccion, form);
   }
 }

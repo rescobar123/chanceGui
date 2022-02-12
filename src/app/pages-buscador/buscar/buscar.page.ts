@@ -31,6 +31,7 @@ export class BuscarPage implements OnInit {
 
   ngOnInit() {
     this.admobService.MostrarBanner();
+    this.admobService.MostrarInterstitial();
     this.user = this.auth.getUser();
     let idUser:string = this.user.usuario.idUsuario;
     let idPropuesta = 0;

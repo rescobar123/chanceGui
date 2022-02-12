@@ -4,7 +4,6 @@ import { ComentarioI } from '../../../models/Comentario.Interface';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AlertI } from '../../../models/complements/AlertI';
-
 @Component({
   selector: 'app-chek-offer',
   templateUrl: './chek-offer.page.html',
@@ -13,11 +12,16 @@ import { AlertI } from '../../../models/complements/AlertI';
 export class ChekOfferPage implements OnInit {
   comentarioForm = new FormGroup({
     contenido:  new FormControl(''),
+    recibeEnvia:  new FormControl(''),
+    estado:  new FormControl(''),
+    propuesta:  new FormControl(''),
+    oferta:  new FormControl(''),
+
 });
   public messages;
   public comentarios:ComentarioI[]=[];
-  public idPropuesta:any;
-  public idOferta:any;
+  public idPropuesta:number;
+  public idOferta:number;
   messagesList: any[];
   constructor(
     private comentarioService:ComentarioService,
@@ -25,8 +29,8 @@ export class ChekOfferPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.idOferta= this.rutaActiva.snapshot.paramMap.get("idOferta");
-    this.idPropuesta = this.rutaActiva.snapshot.paramMap.get("idPropuesta");
+    this.idOferta = parseInt (this.rutaActiva.snapshot.paramMap.get("idOferta"));
+    this.idPropuesta = parseInt (this.rutaActiva.snapshot.paramMap.get("idPropuesta"));
     this.comentarioService.getAllComentarios(this.idPropuesta,this.idOferta).subscribe(data=>{
       this.comentarios = data;
       
@@ -37,16 +41,16 @@ export class ChekOfferPage implements OnInit {
   enviarComentario(form:ComentarioI){
     console.log("je")
     form.recibeEnvia = 1;
-    form.estado = 2;
-    form.propuesta.idPropuesta = this.idPropuesta;
-    form.oferta.idOferta = this.idOferta;
-    console.log(form.contenido);
+    form.estado = 1;
+    form.propuesta = JSON.parse('{"idPropuesta": '+this.idPropuesta+' }')
+    form.oferta = JSON.parse('{"idOferta": '+this.idOferta+' }');
+   
 
     this.comentarioService.postComentario(form).subscribe( data => {
       let alerta:AlertI = data;
       if(alerta.tipo == "success"){
         //this.alertService.presentAlertMultipleButtons("Propuesta publicada!!", alerta.mensaje, "");
-        console.log("Propuesta publicada...");
+        console.log("comentario publicada...");
         this.comentarioForm.reset();
         this.ngOnInit();
       }else{
