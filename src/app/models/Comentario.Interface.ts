@@ -2,7 +2,7 @@ import { EmpleoI } from './Empleo.Interface';
 import { OfertaI } from './Oferta.Interface';
 export interface ComentarioI{
     idComentario?:number,
-    recibeEnvia?: string,
+    recibeEnvia?: number,
     fechaHora?:string,
     contenido?:string,
     estado?:number,

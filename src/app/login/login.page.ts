@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { AdmobService } from '../services/publicidad/admob.service';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +15,13 @@ export class LoginPage implements OnInit {
     pw: 'admin'
   };
 
-  constructor(private auth: AuthService, private alertCtrl: AlertController, private router: Router) { }
+  constructor(private auth: AuthService,
+     private alertCtrl: AlertController,
+      private router: Router,
+      private admobService:AdmobService) { }
 
   ngOnInit() {
+    this.admobService.MostrarBanner();
   }
 
   login() {
