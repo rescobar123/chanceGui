@@ -1,37 +1,47 @@
 
-<ion-content>
+<ion-content >
   <ion-fab vertical="bottom" vertical="end" horizontal="end" slot="fixed">
     <ion-fab-button size="small" color="ligth" >
       <ion-back-button defaultHref=""></ion-back-button>
     </ion-fab-button>
   </ion-fab>
-  <ion-list class="Scroll">
-    <ion-list-header>
-      Ultimos mensajes
-    </ion-list-header>
-    <ion-item style="width: 85%; border-radius: 15px; margin-top: 0.5%;" color="dark">
-      <ion-text>Fragmento de un escrito con unidad temática, que queda diferenciado del resto de fragmentos por un punto
-        y aparte y generalmente también por llevar letra mayúscula inicial y un espacio en blanco en el margen izquierdo
-        de alineación del texto principal de la primera línea.
+    <br>
+  <ion-card-title>Oferta y ultimos mensajes</ion-card-title>
+  <br>
+  <ion-list *ngFor="let comentario of comentarios">
+    <ion-item *ngIf="comentario.recibeEnvia == '2'" style="width: 85%; border-radius: 15px; margin-top: 0.5%; font-size: 85%;" color="dark">
+      <ion-text>
+        {{comentario.contenido}}
+        <p style="font-size: 80%; color: gray;">{{comentario.fechaHora | date: 'medium' }}</p>
       </ion-text>
+      
     </ion-item>
 
-    <ion-item style="width: 85%; border-radius: 15px; margin-left: 15%; margin-top: 0.5%;" color="light">
-      <ion-text>Hola Margot me gusto tu servicio dedes</ion-text>
+
+    <ion-item *ngIf="comentario.recibeEnvia == '1'" style="width: 85%; border-radius: 15px; margin-left: 15%; margin-top: 0.5%; font-size: 85%;" color="success">
+      <ion-text >
+        {{ comentario.contenido }}
+        <p style="font-size: 80%; color: gray;">{{comentario.fechaHora | date: 'medium' }}</p>
+      </ion-text>
+      
     </ion-item>
-    
-    
   </ion-list>
   
-  <ion-toolbar color="primary">
-    <ion-item>
-
-      <ion-textarea placeholder="Envia un mensaje...">
-      </ion-textarea>
-      <ion-fab-button size="small" color="success">
-        <ion-icon name="send"></ion-icon>
-      </ion-fab-button>
-    </ion-item>
-   
-  </ion-toolbar>
+  
 </ion-content>
+<ion-toolbar style="width: 100%;" color="primary">
+  <ion-item>
+    <form class="formScroll" [formGroup]=comentarioForm
+    (ngSubmit)="enviarComentario(comentarioForm.value)">
+    <ion-item>
+      <ion-textarea cols="100" placeholder="Envia un mensaje..." required name="contenido" class="form-control "
+      formControlName="contenido"  type="time">
+      </ion-textarea>
+      <ion-button  type="submit" [disabled]="comentarioForm.invalid" color="success">
+          <ion-icon name="send"></ion-icon>
+        </ion-button>
+    </ion-item>
+
+    </form>
+  </ion-item>
+</ion-toolbar>
