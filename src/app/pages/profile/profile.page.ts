@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,9 +10,16 @@ export class ProfilePage implements OnInit {
   public img1: any;
   file: File;
 
-  constructor() { }
+  constructor(
+    private auth:AuthService
+  ) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    console.log("Cerrrando sesino...")
+    this.auth.logout();
   }
 
   fileChange(event) {
