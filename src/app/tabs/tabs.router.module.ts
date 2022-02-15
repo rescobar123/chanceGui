@@ -62,7 +62,18 @@ const routes: Routes = [
           }
         ]
       },
+      {
+        path: 'mensajeria',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pages-buscador/mensajeria/mensajeria.module').then(m => m.MensajeriaPageModule)
+          }
+        ]
+      },
     ]
+    
   }
 ];
 

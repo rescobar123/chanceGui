@@ -29,4 +29,15 @@ export class OfertaService {
       .set('idUsuarioCreo', idUserCache);
     return this.http.get<OfertaI[]>(direccion, { params });
   }
+
+  getAllOfertasByIdUserCreoOferta(): Observable<OfertaI[]> {
+    let direccion = URL + "ofertasByIdUsuarioOferta";
+    let user:any = this.auth.getUser();
+    let idUserCache:string = user.usuario.idUsuario;
+    const params = new HttpParams()
+      .set('idUsuarioCreo', idUserCache);
+    return this.http.get<OfertaI[]>(direccion, { params });
+  }
+
+
 }

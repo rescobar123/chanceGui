@@ -1,15 +1,6 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="secondary">
-      <ion-button expand="block" (click)="logout()">
-        <ion-icon slot="icon-only" name="exit"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>Chance</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <br>
+  <ion-card-subtitle>Personas disponibles...</ion-card-subtitle>
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let empleo of empleos" size="12" size-md="12">

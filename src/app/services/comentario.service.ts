@@ -27,4 +27,12 @@ export class ComentarioService {
     console.log(form);
     return this.http.put<AlertI>(direccion, form);
   }
+
+  getAllComentariosByidUser(idPropuesta: any, idOferta:any): Observable<ComentarioI[]> {
+    let direccion = URL + "comentarios";
+    const params = new HttpParams()
+    .set('idPropuesta', idPropuesta)
+    .set('idOferta', idOferta);
+    return this.http.get<ComentarioI[]>(direccion, {params});
+  }
 }
