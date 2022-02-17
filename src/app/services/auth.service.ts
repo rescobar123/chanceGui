@@ -88,7 +88,6 @@ export class AuthService {
 
   findUser(idUsuario: any):Observable<UsuarioI>{
     let direccion = URL + "user";
-    console.log(idUsuario);
     const params = new HttpParams()
     .set('idUsuario' , idUsuario);
     return this.http.get<UsuarioI>(direccion, { params});
