@@ -56,7 +56,7 @@
             <ion-label color="primary" position="stacked" class="ion-text-center">Educacion</ion-label>
             <ion-select required name="educacion" class="form-control" formControlName="educacion" value="default"
               okText="Aceptar" cancelText="Cancelar">
-              <ion-select-option selected value="{{user.educacion}}" selected disable>--{{user.educacion}}--</ion-select-option>
+              <ion-select-option selected value="{{user.educacion}}">{{user.educacion}}</ion-select-option>
               <ion-select-option value="Primaria">Primaria</ion-select-option>
               <ion-select-option value="Basica">Basica</ion-select-option>
               <ion-select-option value="Diversificado">Diversificado</ion-select-option>
@@ -119,7 +119,7 @@
           </ion-item>
         </ion-col>
         <ion-col   size-md="12">
-          <img id="fotoImagen" style="display: block; margin: auto;" width="45%" *ngIf="img1" [src]="img1"/>
+          <img id="fotoImagen" src="{{ user.foto }}" width="45%" *ngIf="img1" [src]="img1"/>
           <br>
           <input hidden name="foto" class="form-control" formControlName="foto" *ngIf="img1" value="{{img1}}" />
         </ion-col>
@@ -136,7 +136,7 @@
           </ion-item>
         </ion-col>
         <ion-col   size-md="12">
-          <img id="cvImagen" style="display: block; margin: auto;" width="45%" *ngIf="cv" [src]="cv"/>
+          <img id="cvImagen"  src="{{ user.cv }}"  width="45%" *ngIf="cv" [src]="cv"/>
           <br>
           <input hidden name="cv" class="form-control" formControlName="cv" *ngIf="cv" value="{{cv}}" />
         </ion-col>
@@ -145,7 +145,7 @@
       <ion-row color="primary" justify-content-center>
         <ion-col size size-md="12">
 
-          <ion-button size="large" color="success" type="submit"  expand="block">Actualizar
+          <ion-button color="success" type="submit"  expand="block">Actualizar
           </ion-button>
         </ion-col>
 

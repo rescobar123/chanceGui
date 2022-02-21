@@ -10,6 +10,8 @@ export interface OfertaI{
     horaFin?: string,
     complemento?:string,
     fechaCreacion?:string,
-    estado?:number
-    usuario?:UsuarioI
+    estado?:number,
+    usuario?:UsuarioI,
+    idTipoEmpleo?:number,
+    oferta:string
 }  

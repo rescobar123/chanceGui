@@ -46,7 +46,11 @@ export class PublishJobPage implements OnInit {
     certificado: new FormControl(''),
     descripcion: new FormControl(' '),
   });
-  constructor(private activeRouter:ActivatedRoute, private auth: AuthService, private ws:PropuestaService, private wsRecursos: RecursosService, private alertService:AlertService) {
+  constructor(private activeRouter:ActivatedRoute,
+     private auth: AuthService, 
+     private ws:PropuestaService, 
+     private wsRecursos: RecursosService,
+    private alertService:AlertService) {
     
    }
 

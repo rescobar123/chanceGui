@@ -21,6 +21,12 @@ export class OfertaService {
     return this.http.put<AlertI>(direccion, form);
   }
 
+  postOfertaPublicar(form: OfertaI): Observable<AlertI> {
+    let direccion = URL + "insertarOferta";
+    console.log(direccion);
+    return this.http.put<AlertI>(direccion, form);
+  }
+
   getAllOfertasByIdUser(): Observable<OfertaI[]> {
     let direccion = URL + "ofertas";
     let user:any = this.auth.getUser();
@@ -39,5 +45,38 @@ export class OfertaService {
     return this.http.get<OfertaI[]>(direccion, { params });
   }
 
+  getAllOfertasPublic(tipoEmpleo:string): Observable<OfertaI[]> {
+    let direccion = URL + "ofertasAll";
+    const params = new HttpParams()
+      .set('tipoEmpleo', tipoEmpleo);
+    return this.http.get<OfertaI[]>(direccion, { params });
+  }
 
+
+  getAllOfertaByIdUsuario(idUsuarioCreoOferta:string): Observable<OfertaI[]> {
+    let direccion = URL + "ofertasAllByIdUsuario";
+    const params = new HttpParams()
+      .set('idUsuarioCreoOferta', idUsuarioCreoOferta);
+    return this.http.get<OfertaI[]>(direccion, { params });
+  }
+
+  deleteOferta(form: OfertaI): Observable<AlertI> {
+    let direccion = URL + "delete";
+    console.log(direccion);
+    return this.http.put<AlertI>(direccion, form);
+  }
+
+  actualizarOferta(form: OfertaI): Observable<AlertI> {
+    let direccion = URL + "actualizar";
+    console.log(direccion);
+    return this.http.put<AlertI>(direccion, form);
+  }
+
+  getAllOfertaById(idOferta:string): Observable<OfertaI> {
+    let direccion = URL + "ofertaById";
+    const params = new HttpParams()
+      .set('idOferta', idOferta);
+    return this.http.get<OfertaI>(direccion, { params });
+  }
+  
 }

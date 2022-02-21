@@ -22,6 +22,7 @@ export class ChekOfferPage implements OnInit {
   public comentarios:ComentarioI[]=[];
   public idPropuesta:number;
   public idOferta:number;
+  public recibeEnvia:number;
   messagesList: any[];
   constructor(
     private comentarioService:ComentarioService,
@@ -31,6 +32,7 @@ export class ChekOfferPage implements OnInit {
   ngOnInit() {
     this.idOferta = parseInt (this.rutaActiva.snapshot.paramMap.get("idOferta"));
     this.idPropuesta = parseInt (this.rutaActiva.snapshot.paramMap.get("idPropuesta"));
+    this.recibeEnvia = parseInt (this.rutaActiva.snapshot.paramMap.get("recibeEnvia"));
     this.comentarioService.getAllComentarios(this.idPropuesta,this.idOferta).subscribe(data=>{
       this.comentarios = data;
       
@@ -40,7 +42,7 @@ export class ChekOfferPage implements OnInit {
 
   enviarComentario(form:ComentarioI){
     console.log("je")
-    form.recibeEnvia = 1;
+    form.recibeEnvia = this.recibeEnvia;
     form.estado = 1;
     form.propuesta = JSON.parse('{"idPropuesta": '+this.idPropuesta+' }')
     form.oferta = JSON.parse('{"idOferta": '+this.idOferta+' }');

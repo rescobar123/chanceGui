@@ -1,0 +1,46 @@
+<ion-content>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-card class="welcome-card">
+    <ion-card-content>
+
+
+      <ion-card-title>
+        Se necesita: {{trabajo | uppercase}}
+
+      </ion-card-title>
+      <p style="font-size: 60%; color: gray;">Creada: {{fechaCreacion | date: 'medium' }}</p>
+      <ion-item-divider></ion-item-divider>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-md="12">
+            <b>Contratacion: </b> {{contratacion }} <br>
+            <b>Pago por {{ tipoPago }}: </b> {{ precioHora}}<br>
+            <b>Tiempo: </b> {{tiempo}} <br>
+            <b>Dias: </b> {{ dias }} <br>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-card-title>Oferta: </ion-card-title>
+          <br>
+          <p>{{ ofertaEspecifica }}</p>
+          <br>
+
+        </ion-row>
+
+      </ion-grid>
+
+      <ion-item-divider></ion-item-divider>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" size-md="12">
+              <ion-button (click)="aplicarOferta()" size="block" color="success">AplicarOferta</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

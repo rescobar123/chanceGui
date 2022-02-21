@@ -1,9 +1,106 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>publicar-oferta</ion-title>
+    <ion-segment value="crearOferta" scrollable>
+      <ion-segment-button value="crearOferta" (click)="changeJob('crearOferta')" class="segment-button segment-activated">
+        Quiero
+      </ion-segment-button>
+      <ion-segment-button value="creadas" (click)="changeJob('creadas')">
+        Creadas
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
+  <div [ngSwitch]="job">
+    <ion-card *ngSwitchCase="'crearOferta'" >
+      <ion-card-header>
+        <ion-card-title>Que Necesitas?</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form class="formScroll" [formGroup]=datosGeneralesForm
+          (ngSubmit)="guardarDatosGenerales(datosGeneralesForm.value)">
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Necesito un/una:</ion-label>
+            <ion-select required name="tipoEmpleo" class="form-control " formControlName="tipoEmpleo" value="brown"
+              okText="Aceptar" cancelText="Cancelar">
+              <ion-select-option *ngFor="let tipoEmpleo of tiposEmpleos"
+                value="{{tipoEmpleo.idTipoEmpleo}},{{tipoEmpleo.nombreEmpleo}}">{{ tipoEmpleo.nombreEmpleo}}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Cuando:</ion-label>
+            <ion-select required name="disponibilidad" class="form-control" formControlName="disponibilidad"
+              value="brown" okText="Aceptar" cancelText="Cancelar">
+              <ion-select-option value="Inmediata">Inmediato</ion-select-option>
+              <ion-select-option value="5 Dias">En 5 Dias</ion-select-option>
+              <ion-select-option value="10 Dias">En 10 Dias</ion-select-option>
+              <ion-select-option value="15 Dias">En 15 Dias</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Cuanto tiempo:</ion-label>
+            <ion-select required name="tiempo" class="form-control" formControlName="tiempo" value="brown"
+              okText="Aceptar" cancelText="Cancelar">
+              <ion-select-option value="Dias">Dias</ion-select-option>
+              <ion-select-option value="Semanas">Semanas</ion-select-option>
+              <ion-select-option value="Meses">Meses</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Que dias:</ion-label>
+            <ion-select required name="diasLaborables" class="form-control " formControlName="diasLaborables"
+              multiple="true" cancelText="Cancel" okText="Aceptar">
+              <ion-select-option value="Lunes">Lunes</ion-select-option>
+              <ion-select-option value="Martes">Martes</ion-select-option>
+              <ion-select-option value="Miercoles">Miercoles</ion-select-option>
+              <ion-select-option value="Jueves">Jueves</ion-select-option>
+              <ion-select-option value="Viernes">Viernes</ion-select-option>
+              <ion-select-option value="Sabado">Sabado</ion-select-option>
+              <ion-select-option value="Domingo">Domingo</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Tipo de pago:</ion-label>
+            <ion-select required name="tipoPago" class="form-control" formControlName="tipoPago" value="brown"
+              okText="Aceptar" cancelText="Cancelar">
+              <ion-select-option value="unico">Pago Unico</ion-select-option>
+              <ion-select-option value="hora">Pago por Hora</ion-select-option>
+              <ion-select-option value="dia">Pago por dia</ion-select-option>
+              <ion-select-option value="quincena">Pago por quincena</ion-select-option>
+              <ion-select-option value="mes">Pago por mes</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Pago en Q.</ion-label>
+            <ion-input required type="number" name="cantidadPago" class="form-control " formControlName="cantidadPago">
+            </ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Complementa tu oferta
+              ...</ion-label>
+            <ion-textarea class="ion-text-center" required name="descripcion" class="form-control"
+              formControlName="descripcion" rows="4">
+            </ion-textarea>
+          </ion-item>
+          <ion-button color="tertiary" expand="block" [disabled]="datosGeneralesForm.invalid" type="submit">Publicar
+            Oferta <ion-icon name="send">
+            </ion-icon>
+          </ion-button>
+        </form>
+
+
+      </ion-card-content>
+    </ion-card>
+    <app-oferta-publicated *ngSwitchCase="'creadas'">
+
+    </app-oferta-publicated>
+  </div>
+
 
 </ion-content>

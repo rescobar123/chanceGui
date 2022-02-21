@@ -1,5 +1,4 @@
 <ion-header>
-
   <ion-toolbar>
     <ion-segment value="propuesta" scrollable>
       <ion-segment-button value="propuesta" (click)="changeJob('propuesta')" class="segment-button segment-activated">
@@ -9,7 +8,7 @@
         Publicadas
       </ion-segment-button>
       <ion-segment-button value="empleosDisponibles" (click)="changeJob('empleosDisponibles')">
-        Buscar Trabajo
+         Empleos
         <ion-icon name="search"></ion-icon>
       </ion-segment-button>
     </ion-segment>
@@ -37,27 +36,6 @@
     <div *ngSwitchCase="'misPropuestas'">
       <app-publicated-job></app-publicated-job>
     </div>
-    <ion-card class="welcome-card" *ngSwitchCase="'empleosDisponibles'">
-      <ion-list>
-        <ion-list-header>
-          Ofertas de empleo publicadas.
-        </ion-list-header>
-        <ion-item   >
-          <ion-avatar slot="start">
-            <img src="https://w7.pngwing.com/pngs/956/783/png-transparent-computer-icons-female-youtube-woman-avatar-business-woman-face-black-hair-head.png">
-          </ion-avatar>
-          <ion-label>
-            <h2>Mario Castanieda</h2>
-            <h3>Quiere tu servicio como niniera</h3>
-            <p>Hola Margot me gusto tu servicio de niniera podrias porfavor decirme que dias puedes</p>
-            <ion-button [routerLink]="['chek-offer', 'idOferta']">Revisar <ion-icon
-              name="eye"></ion-icon>
-            </ion-button>
-          </ion-label>
-          
-        </ion-item>
-
-      </ion-list>
-    </ion-card>
+      <app-ofertas-disponibles *ngSwitchCase="'empleosDisponibles'"></app-ofertas-disponibles>
   </div>
 </ion-content>

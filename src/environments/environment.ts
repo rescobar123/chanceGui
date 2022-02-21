@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  ws: 'http://localhost:9090/backendChance/WS/'
+  ws: 'http://192.168.0.12:9090/backendChance/WS/'
 };
 
 /*

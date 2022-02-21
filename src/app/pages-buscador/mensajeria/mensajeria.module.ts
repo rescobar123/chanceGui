@@ -13,7 +13,7 @@ const routes: Routes = [
     component: MensajeriaPage
   },
   {
-    path: 'chek-offer/:idOferta/:idPropuesta',
+    path: 'chek-offer/:idOferta/:idPropuesta/:recibeEnvia',
     loadChildren: () => import('../../pages/offers/chek-offer/chek-offer.module').then(m => m.ChekOfferPageModule),
   },
 ];

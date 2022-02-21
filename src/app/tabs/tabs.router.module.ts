@@ -58,7 +58,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../pages-buscador/buscar/buscar.module').then(m => m.BuscarPageModule)
+              import('../pages-buscador//publicar-oferta/publicar-oferta.module').then(m => m.PublicarOfertaPageModule)
           }
         ]
       },

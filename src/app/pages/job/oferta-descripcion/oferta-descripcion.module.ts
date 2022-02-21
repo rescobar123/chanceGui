@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PublicarOfertaPage } from './publicar-oferta.page';
-import { OfertaPublicatedComponent } from './oferta-publicated/oferta-publicated.component';
+import { OfertaDescripcionPage } from './oferta-descripcion.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: PublicarOfertaPage
+    component: OfertaDescripcionPage
   }
 ];
 
@@ -23,12 +22,6 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [
-    PublicarOfertaPage,
-    OfertaPublicatedComponent
-  ],
-  exports:[
-    OfertaPublicatedComponent
-  ]
+  declarations: [OfertaDescripcionPage]
 })
-export class PublicarOfertaPageModule {}
+export class OfertaDescripcionPageModule {}
