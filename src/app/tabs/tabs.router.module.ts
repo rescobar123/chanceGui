@@ -23,6 +23,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'search',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pages/search-job/search-job.module').then(m => m.SearchJobPageModule)
+          }
+        ]
+      },
+      {
         path: 'offers',
         children: [
           {

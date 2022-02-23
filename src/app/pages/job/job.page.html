@@ -1,41 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-segment value="propuesta" scrollable>
-      <ion-segment-button value="propuesta" (click)="changeJob('propuesta')" class="segment-button segment-activated">
-        Inicio
-      </ion-segment-button>
-      <ion-segment-button value="misPropuestas" (click)="changeJob('misPropuestas')">
-        Publicadas
-      </ion-segment-button>
-      <ion-segment-button value="empleosDisponibles" (click)="changeJob('empleosDisponibles')">
-         Empleos
-        <ion-icon name="search"></ion-icon>
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div [ngSwitch]="job">
-    <ion-card class="welcome-card" *ngSwitchCase="'propuesta'">
+  <div>
+    <ion-card class="welcome-card">
       <img
-        src="https://thumbs.dreamstime.com/z/uniforme-del-grupo-trabajador-de-los-personajes-dibujos-animados-d%C3%ADa-trabajo-108735449.jpg"
+        src="https://c8.alamy.com/compes/py699d/los-trabajadores-industriales-hablando-en-el-campamento-diseno-ilustracion-vectorial-py699d.jpg"
         alt="" />
-      <ion-card-header>
-        <ion-card-title>Que debo hacer?</ion-card-title>
-      </ion-card-header>
+      
       <ion-card-content>
-        <p>Simplemente has click en el boton de "Crear mi propuesta" llena los campos requidos y listo, recuerda que
-          puedes crear las propuestas que desees de los trabajos que puedes desempeniar, ademas puedes buscar en la
-          pestania de "Quiero Trabajar" para ver si hay personas requiriendo algun empleo especifico.</p><br>
-        <ion-button [routerLink]="['publish-job', 'empleo']" color="success" expand="block">Quiero Trabajar <ion-icon
+          
+        <ion-button [routerLink]="['publish-job', 'empleo']" color="success" expand="block">Crear Oficio <ion-icon
             name="create"></ion-icon>
         </ion-button>
+        <br>
+        <ion-card-title>Oficios Creados</ion-card-title>
+        <ion-item-divider></ion-item-divider>
+        <app-publicated-job></app-publicated-job>
+
+
       </ion-card-content>
     </ion-card>
-    <div *ngSwitchCase="'misPropuestas'">
-      <app-publicated-job></app-publicated-job>
-    </div>
-      <app-ofertas-disponibles *ngSwitchCase="'empleosDisponibles'"></app-ofertas-disponibles>
   </div>
 </ion-content>

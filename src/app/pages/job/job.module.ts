@@ -5,7 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { PublicatedJobComponent } from './publicated-job/publicated-job.component';
 import { JobPage } from './job.page';
-import { OfertasDisponiblesComponent } from './ofertas-disponibles/ofertas-disponibles.component';
 
 const routes: Routes = [
   {
@@ -33,11 +32,9 @@ const routes: Routes = [
   ],
   exports:[
     PublicatedJobComponent,
-    OfertasDisponiblesComponent
   ],
   declarations: [
     JobPage,
-    OfertasDisponiblesComponent,
     PublicatedJobComponent,
   ],
 })

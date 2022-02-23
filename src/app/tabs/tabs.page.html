@@ -20,9 +20,15 @@
 
 <ion-tabs *ngIf="user.rol == 'empleado'">
   <ion-tab-bar slot="bottom">
+
     <ion-tab-button tab="job">
       <ion-icon name="home"></ion-icon>
       <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="search">
+      <ion-icon name="search"></ion-icon>
+      <ion-label>Buscar</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="offers">
@@ -30,6 +36,9 @@
       <ion-badge color="success">5</ion-badge>
       <ion-label>Ofertas</ion-label>
     </ion-tab-button>
+
+   
+    
 
     <ion-tab-button tab="profile">
       <ion-icon name="person"></ion-icon>

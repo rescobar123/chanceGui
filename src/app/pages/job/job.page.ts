@@ -1,7 +1,10 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { ModalController } from '@ionic/angular';
+import { IonSlides, ModalController } from '@ionic/angular';
+
+
+
 
 @Component({
   selector: 'app-job',
@@ -9,6 +12,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./job.page.scss'],
 })
 export class JobPage implements OnInit {
+  @ViewChild('mySlider',null)  slides: IonSlides;
   public job:string;
   user = null;
   constructor(private auth: AuthService, private modalController: ModalController) { 
@@ -30,6 +34,10 @@ export class JobPage implements OnInit {
     console.log(jobSegment);
   }
 
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
 
 
 }
