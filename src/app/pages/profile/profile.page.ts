@@ -39,15 +39,18 @@ export class ProfilePage implements OnInit {
     private auth:AuthService,
     private alertService:AlertService, 
     private wsRecurso:RecursosService
-  ) { }
-
-  ngOnInit() {
+  ) {
+    
     this.usuarioCache = this.auth.getUser();
     let idUser:string = this.usuarioCache.usuario.idUsuario;
     this.auth.findUser(idUser).subscribe(data=>{
       this.user = data;
       console.log(this.user);
     });
+  }
+
+  ngOnInit() {
+
   }
 
   logout() {

@@ -54,4 +54,14 @@ export class PropuestaService {
     .set('idUsuario', idUsuario);
     return this.http.get<EmpleoI[]>(direccion, {params});
   }
+
+  listarPropuestasByUser(idUsuario:any): Observable<EmpleoI[]> {
+    let direccion = URL + "listarPropuestasByUser";
+    console.log(idUsuario);
+    const params = new HttpParams()
+    .set('idUsuarioCreo', idUsuario);
+    return this.http.get<EmpleoI[]>(direccion, {params});
+  }
+
+  
 }

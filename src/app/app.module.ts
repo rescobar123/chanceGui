@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
+import { QuillModule } from 'ngx-quill';
 //Creados
 import { JobPageModule } from './pages/job/job.module';
 import { BuscarPageModule } from './pages-buscador/buscar/buscar.module';
@@ -26,7 +27,7 @@ import { AdmobService } from './services/publicidad/admob.service';
     HttpClientModule,
     JobPageModule,
     BuscarPageModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
   ],
   providers: [
     AdMobFree,

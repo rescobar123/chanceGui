@@ -11,7 +11,7 @@ export class TabsPage {
   public user:UsuarioI;
   constructor(private auth: AuthService,) {
     let data = this.auth.getUser();
-    this.user = data.usuario;;
+    this.user = data.usuario;
     console.log(this.user);
   }
 }

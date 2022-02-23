@@ -7,15 +7,20 @@
       <b>{{ trabajo | uppercase}}</b>
       <p style="font-size: 60%; color: gray;">Creada: {{oferta.fechaCreacion | date: 'medium' }}</p>
     </ion-label>
-    <ion-fab-button (click)="deleteOferta(oferta.idOferta)" size="small" color="danger">
+    <ion-button  [routerLink]="['mensajes-ofertas-public', oferta.idOferta]" expand="full"  color="light">
+      Ofertas Recibidas
+     </ion-button>
+    <!--<ion-fab-button (click)="deleteOferta(oferta.idOferta)" size="small" color="danger">
       <ion-icon name="trash"></ion-icon>
-    </ion-fab-button>
+    </ion-fab-button>-->
+    
     <div *ngIf="oferta.estado == 1; ">
       <ion-toggle checked  (click)="cambiarEstadoOferta(oferta.idOferta,0)" slot="end"></ion-toggle>
     </div>
     <div *ngIf="oferta.estado == 0; ">
       <ion-toggle unchecked  (click)="cambiarEstadoOferta(oferta.idOferta,1)" slot="end"></ion-toggle>
     </div>
+    
 
   </ion-item>
 </ion-list>

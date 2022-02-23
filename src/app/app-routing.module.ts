@@ -18,7 +18,8 @@ const routes: Routes = [
   },
   { path: 'publicar-oferta', loadChildren: './pages-buscador/publicar-oferta/publicar-oferta.module#PublicarOfertaPageModule' },
   { path: 'mensajeria', loadChildren: './pages-buscador/mensajeria/mensajeria.module#MensajeriaPageModule' },
-  { path: 'oferta-descripcion', loadChildren: './pages/job/oferta-descripcion/oferta-descripcion.module#OfertaDescripcionPageModule' }
+  { path: 'oferta-descripcion', loadChildren: './pages/job/oferta-descripcion/oferta-descripcion.module#OfertaDescripcionPageModule' },
+  { path: 'mensajes-ofertas-propuestas', loadChildren: './pages-buscador/mensajeria/mensajes-ofertas-propuestas/mensajes-ofertas-propuestas.module#MensajesOfertasPropuestasPageModule' }
 ];
 @NgModule({
   imports: [

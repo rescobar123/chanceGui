@@ -9,7 +9,21 @@
   <ion-card-title>Oferta y ultimos mensajes</ion-card-title>
   <br>
   <ion-list >
+    <div *ngIf="recibeEnvia == 3">
+      <ion-button size="small"  color="">
+        Ver perfil 
+      </ion-button>
+      <br>
+    </div>
     <div *ngFor="let comentario of comentarios">
+      <ion-item *ngIf="comentario.recibeEnvia == 3" style="width: 85%; border-radius: 12px; margin-top: 0.3%; font-size: 85%;" color="light">
+        <ion-text style="margin-top: 2%;">
+          {{comentario.contenido}}
+          <p style="font-size: 80%; color: gray;">{{comentario.fechaHora | date: 'medium' }}</p>
+        </ion-text>
+        
+      </ion-item>
+    
     <ion-item *ngIf="comentario.recibeEnvia == 2" style="width: 85%; border-radius: 12px; margin-top: 0.3%; font-size: 85%;" color="dark">
       <ion-text style="margin-top: 2%;">
         {{comentario.contenido}}

@@ -25,10 +25,10 @@ const routes: Routes = [
   ],
   declarations: [
     PublicarOfertaPage,
-    OfertaPublicatedComponent
+    //OfertaPublicatedComponent
   ],
   exports:[
-    OfertaPublicatedComponent
+    
   ]
 })
 export class PublicarOfertaPageModule {}

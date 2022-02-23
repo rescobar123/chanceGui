@@ -6,7 +6,7 @@
     <div color="light">
       <ion-item  style="border-radius: 12px;" *ngFor="let oferta of ofertas"  [routerLink]="['chek-offer', oferta.idOferta, oferta.propuesta.idPropuesta, 1]">
         <ion-avatar slot="start">
-          <img src="https://w7.pngwing.com/pngs/956/783/png-transparent-computer-icons-female-youtube-woman-avatar-business-woman-face-black-hair-head.png" />
+          <img src="{{ oferta.usuario.foto }}" />
         </ion-avatar>
         <ion-label>
           <h2>{{oferta.usuario.nombres +' ' +oferta.usuario.apellidos | uppercase }}  <p style="font-size: 60%; color: gray;">{{oferta.fechaCreacion | date: 'medium' }}</p> </h2>
