@@ -3,17 +3,30 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Register</ion-title>
+    <ion-title>Crea tu usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <form [formGroup]=registerForm (ngSubmit)="registrarUser(registerForm.value)">
     <ion-grid>
-      <div class="ion-text-center">
-        <h3>Crea tu cuenta!</h3>
-      </div>
+      <ion-row>
+        <ion-col size size-md="12">
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Tipo de Cuenta</ion-label>
+            <ion-select required name="educacion" class="form-control" formControlName="educacion" value="default"
+              okText="Aceptar" cancelText="Cancelar">
+              <ion-select-option selected value="default" disable>--Elija una--</ion-select-option>
+              <ion-select-option value="Primaria">Para trabajar</ion-select-option>
+              <ion-select-option value="Basica">Buscar trabajador</ion-select-option>
+              <ion-select-option value="Diversificado">Diversificado</ion-select-option>
+              <ion-select-option value="Universitaria">Universitaria</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
       <ion-row color="primary" justify-content-center>
+        
         <ion-col size size-md="6">
           <ion-item>
             <ion-label color="primary" position="stacked" class="ion-text-center">Nombres</ion-label>

@@ -8,6 +8,9 @@ import { ModalController } from '@ionic/angular';
 import { PropuestaModalComponent } from './propuesta-modal/propuesta-modal.component';
 import { ContratarModalComponent } from './contratar-modal/contratar-modal.component';
 import { AdmobService } from '../../services/publicidad/admob.service';
+import { RecursosService } from 'src/app/services/recursos.service';
+import { TipoEmpleoI } from 'src/app/models/complements/TipoEmpleoI';
+import { FormControl, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-buscar',
   templateUrl: './buscar.page.html',
@@ -19,14 +22,18 @@ export class BuscarPage implements OnInit {
   public idTipoEmpleo;
   public estado;
   public user:any;
- 
+  datosEmpleosForm = new FormGroup({
+    empleos: new FormControl(''),
+  });
+  public tiposEmpleos: TipoEmpleoI[] = [];
   constructor(
     private propuestaService: PropuestaService,
     private alertService:AlertService,
     private auth: AuthService,
     private alertController: AlertController,
     private modalController: ModalController,
-    private admobService:AdmobService, 
+    private admobService:AdmobService,
+    private wsRecursos:RecursosService 
     ) { }
 
   ngOnInit() {
@@ -38,6 +45,10 @@ export class BuscarPage implements OnInit {
     this.propuestaService.getAllPropuestasWithUserTipoEmpleo(idPropuesta, 0).subscribe(data=>{
       this.empleos = data;
       console.log(this.empleos);
+    });
+    this.wsRecursos.getAllTiposEmpleos().subscribe(data => {
+      this.tiposEmpleos = data;
+      console.log(this.tiposEmpleos);
     });
   }
   ver(empleado:EmpleoI){
@@ -68,5 +79,8 @@ export class BuscarPage implements OnInit {
     }
     });
     return await modal.present();
+  }
+  filtrarEmpleos(){
+    
   }
 }

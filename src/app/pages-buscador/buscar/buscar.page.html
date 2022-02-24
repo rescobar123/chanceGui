@@ -1,6 +1,37 @@
 <ion-content>
   <br>
   <ion-card-subtitle>Personas disponibles...</ion-card-subtitle>
+  <form  class="formScroll" [formGroup]=datosEmpleosForm
+  (ngSubmit)="filtrarEmpleos(datosEmpleosForm.value)">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" size-md="4">
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Oficios</ion-label>
+            <ion-select multiple="true" required name="empleos"  formControlName="empleos" value="brown" okText="Aceptar" cancelText="Cancelar">
+              <ion-select-option *ngFor="let tipoEmpleo of tiposEmpleos" value="{{tipoEmpleo.idTipoEmpleo}}">{{
+                tipoEmpleo.nombreEmpleo}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col size="4" size-md="4">
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Disponibilidad</ion-label>
+            <ion-select multiple="true" required name="empleos"  formControlName="empleos" value="brown" okText="Aceptar" cancelText="Cancelar">
+              <ion-select-option *ngFor="let tipoEmpleo of tiposEmpleos" value="{{tipoEmpleo.idTipoEmpleo}}">{{
+                tipoEmpleo.nombreEmpleo}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col size="4" size-md="4">
+          <ion-button type="submit" [disabled]="datosEmpleosForm.invalid" size="small">Filtrar</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+       
+      </ion-row>
+    </ion-grid>
+  </form>
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-md="12">
