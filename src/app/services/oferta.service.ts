@@ -47,8 +47,11 @@ export class OfertaService {
 
   getAllOfertasPublic(tipoEmpleo:string): Observable<OfertaI[]> {
     let direccion = URL + "ofertasAll";
+    let user:any = this.auth.getUser();
+    let idUserCache:string = user.usuario.idUsuario;
     const params = new HttpParams()
-      .set('tipoEmpleo', tipoEmpleo);
+      .set('tipoEmpleo', tipoEmpleo)
+      .set('idUsuario', idUserCache);
     return this.http.get<OfertaI[]>(direccion, { params });
   }
 

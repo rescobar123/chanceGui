@@ -79,7 +79,13 @@ export class PublishJobPage implements OnInit {
   publicarPropuesta(form:DatosConocimientoI){
     this.datosCertificado = form;
     var img = document.getElementById("fo");
-    let imgResized = this.wsRecursos.resizeImage(img);
+    let imgResized = '';
+    if(img){
+      imgResized = this.wsRecursos.resizeImage(img);
+    }else{
+      imgResized = '';
+    }
+    
 
     let propuesta:string = '{ "certificado": "'+imgResized+'", "descripcion": "'+this.datosCertificado.descripcion+'", "diasLaborables": "'+this.datosGenerales.diasLaborables+'", "disponibilidad" : "'+this.datosGenerales.disponibilidad+'", "idTipoPropuesta": "'+this.datosGenerales.tipoEmpleo+'", "lugaresLaborables": "'+this.datosUbicacion.municipios+'", "precioPorHora": "'+this.datosGenerales.precioEstimadoHora+'", "usuarioCreo": {"idUsuario": '+this.user.usuario.idUsuario+' } }';
     let propuestaOb:EmpleoI;

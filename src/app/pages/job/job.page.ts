@@ -34,10 +34,6 @@ export class JobPage implements OnInit {
     console.log(jobSegment);
   }
 
-  slideOpts = {
-    initialSlide: 1,
-    speed: 400
-  };
 
 
 }
