@@ -22,6 +22,7 @@ export class OfertasDisponiblesComponent implements OnInit {
   public inf: number = 0;
   public empleos: string = "NO";
   public tiposEmpleos: TipoEmpleoI[] = [];
+  public idUsuario:number;
   constructor(
     private ofertaService: OfertaService,
     private wsRecursos: RecursosService,
@@ -45,7 +46,6 @@ export class OfertasDisponiblesComponent implements OnInit {
     this.trabajo = arregloInformacion[0];
     this.contratacion = arregloInformacion[1];
     this.tipoPago = arregloInformacion[4]
-
   }
   filtrarEmpleos(form) {
     this.empleos = form.empleos;

@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { MensajesOfertasPropuestasPage } from './mensajes-ofertas-propuestas.page';
+import { PublicComponent } from '../../../pages/profile/public/public.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,16 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [MensajesOfertasPropuestasPage]
+  declarations: [
+    MensajesOfertasPropuestasPage,
+    PublicComponent,
+  ], 
+  exports: [
+    PublicComponent
+  ], 
+  entryComponents:[
+    PublicComponent
+  ]
+
 })
 export class MensajesOfertasPropuestasPageModule {}
