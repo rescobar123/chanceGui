@@ -10,6 +10,11 @@
 </ion-header>
 
 <ion-content>
+  <ion-fab vertical="bottom" vertical="end" horizontal="end" slot="fixed">
+    <ion-fab-button size="small" color="ligth" (click)="ngOnInit()">
+      <ion-icon name="sync"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <ion-list>
     <ion-list-header> Ofertas Recibidas...  </ion-list-header>
     <div color="light">

@@ -18,7 +18,7 @@ export class OfertasDisponiblesComponent implements OnInit {
   public ofertas: OfertaI[] = [];
   public trabajo: String;
   public tipoPago: String;
-  public contratacion: String;
+  public contratacion: any;
   public inf: number = 0;
   public empleos: string = "NO";
   public tiposEmpleos: TipoEmpleoI[] = [];

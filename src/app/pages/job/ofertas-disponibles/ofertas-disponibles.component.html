@@ -1,49 +1,68 @@
-<ion-list >
-  <form  class="formScroll" [formGroup]=datosEmpleosForm
-  (ngSubmit)="filtrarEmpleos(datosEmpleosForm.value)">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="9" size-md="6">
-          <ion-item>
-            <ion-label color="primary" position="stacked" class="ion-text-center">Filtra por oficios</ion-label>
-            <ion-select multiple="true" required name="empleos"  formControlName="empleos" value="brown" okText="Aceptar" cancelText="Cancelar">
-              <ion-select-option *ngFor="let tipoEmpleo of tiposEmpleos" value="{{tipoEmpleo.idTipoEmpleo}}">{{
-                tipoEmpleo.nombreEmpleo}}</ion-select-option>
-            </ion-select>
-          </ion-item>
-        </ion-col>
-        <ion-col size="3" size-md="6">
-          <ion-button type="submit" [disabled]="datosEmpleosForm.invalid" size="small">Filtrar</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </form>
-  <div *ngFor="let oferta of ofertas;" style="border-radius: 12px; ">
-    <div *ngIf="inf == 0;">
-      {{this.arreglarInformacion(oferta.complemento)}}
-    </div>
-    <ion-item *ngIf="oferta.usuario.idUsuario != 0" style="margin-top: 1%; border-radius: 15px;">
-      <div  slot="end">
-        <ion-item style="border-radius: 5px;" color="medium">
-          <ion-label>
-            Aplicado
-          </ion-label>
-        </ion-item>
-      </div>
-      <ion-label>
-        
-        <h2>{{trabajo | uppercase}} Pago: Q.{{oferta.precioPorHora}}/{{tipoPago | uppercase}}</h2>
-        <p>Contratacion: {{contratacion}}</p>
-        <p style="font-size: 60%; color: gray;">{{oferta.fechaCreacion | date: 'medium' }}</p>
-      </ion-label>
-    </ion-item>
+<ion-header>
+  <ion-toolbar color="">
+    <form class="formScroll" [formGroup]=datosEmpleosForm (ngSubmit)="filtrarEmpleos(datosEmpleosForm.value)">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2" size-md="6">
+            <div>
+              <ion-fab-button size="small" color="ligth" (click)="ngOnInit()">
+                <ion-icon name="sync"></ion-icon>
+              </ion-fab-button>
+            </div>
+          </ion-col>
+          <ion-col size="7" size-md="6">
+            <ion-item>
+              <ion-label color="primary" position="stacked" class="ion-text-center">Filtra por oficios</ion-label>
+              <ion-select multiple="true" required name="empleos" formControlName="empleos" value="brown"
+                okText="Aceptar" cancelText="Cancelar">
+                <ion-select-option *ngFor="let tipoEmpleo of tiposEmpleos" value="{{tipoEmpleo.idTipoEmpleo}}">{{
+                  tipoEmpleo.nombreEmpleo}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+          <ion-col size="3" size-md="6">
+            <ion-button type="submit" [disabled]="datosEmpleosForm.invalid" size="small">Filtrar</ion-button>
+          </ion-col>
 
-    <ion-item *ngIf="oferta.usuario.idUsuario == 0" style="margin-top: 1%; border-radius: 15px;" color="light" [routerLink]="['oferta-descripcion', oferta.idOferta]">
-      <ion-label>
-        <h2>{{trabajo | uppercase}} Pago: Q.{{oferta.precioPorHora}}/{{tipoPago | uppercase}}</h2>
-        <p>Contratacion: {{contratacion}}</p>
-        <p style="font-size: 60%; color: gray;">{{oferta.fechaCreacion | date: 'medium' }}</p>
-      </ion-label>
-    </ion-item>
-  </div>
-</ion-list>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-list>
+
+
+    <div *ngFor="let oferta of ofertas;" style="border-radius: 12px; ">
+      <div *ngIf="inf == 0;">
+        {{this.arreglarInformacion(oferta.complemento)}}
+      </div>
+      <ion-item *ngIf="oferta.usuario.idUsuario != 0" style="margin-top: 1%; border-radius: 15px;">
+        <div slot="end">
+          <ion-item style="border-radius: 5px;" color="medium">
+            <ion-label>
+              Aplicado
+            </ion-label>
+          </ion-item>
+        </div>
+        <ion-label>
+
+          <b>{{trabajo | uppercase}} </b> Pago: <b> Q.{{oferta.precioPorHora}}/{{tipoPago | uppercase}}</b>
+          <p>Contratacion: <b>{{contratacion}}</b></p>
+          <p style="font-size: 60%; color: gray;">{{oferta.fechaCreacion | date: 'medium' }}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item *ngIf="oferta.usuario.idUsuario == 0" style="margin-top: 1%; border-radius: 15px;" color="light"
+        [routerLink]="['oferta-descripcion', oferta.idOferta]">
+        <ion-label>
+          <b>{{trabajo | uppercase}} </b> Pago: <b> Q.{{oferta.precioPorHora}}/{{tipoPago | uppercase}}</b>
+          <p>Contratacion: <b>{{contratacion}}</b></p>
+          <p style="font-size: 60%; color: gray;">{{oferta.fechaCreacion | date: 'medium' }}</p>
+        </ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+
+</ion-content>

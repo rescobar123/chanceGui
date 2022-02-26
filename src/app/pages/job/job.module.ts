@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'oferta-descripcion/:idOferta',
     loadChildren: () => import('./oferta-descripcion/oferta-descripcion.module').then(m => m.OfertaDescripcionPageModule),
   },
+  {
+    path: 'PublicatedJobComponent',
+    loadChildren: () => import('./publicated-job/publicated-job.component').then(m => m.PublicatedJobComponent),
+  },
 
 ];
 

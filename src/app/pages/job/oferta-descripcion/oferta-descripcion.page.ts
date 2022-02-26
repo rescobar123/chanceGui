@@ -87,8 +87,6 @@ export class OfertaDescripcionPage implements OnInit {
         propuestaOb = JSON.parse(propuesta);
         this.crearPropuesta(propuestaOb);
         this.alertService.presentAlertMultipleButtons("Aplicado Correctamente, Favor no aplicar de nuevo, lo estaran contactando si es aceptado!!", alerta.mensaje, "");
-        console.log("comentario publicada...");
-        this.ngOnInit();
       }else{
        this.alertService.presentAlertMultipleButtons(alerta.tipo, alerta.mensaje, alerta.error);
       }

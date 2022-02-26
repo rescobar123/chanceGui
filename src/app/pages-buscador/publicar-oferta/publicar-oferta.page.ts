@@ -61,7 +61,7 @@ export class PublicarOfertaPage implements OnInit {
     this.ws.postOfertaPublicar(ofertaOb).subscribe( data => {
       let alerta:AlertI = data;
       if(alerta.tipo == "success"){
-        this.alertService.presentAlertMultipleButtons("Oferta Enviada", alerta.mensaje, "");
+        this.alertService.presentAlertMultipleButtons("Oferta Enviada, en la mensajeria encontraras tu publicacion y las propuestas que hayas recibido", alerta.mensaje, "");
         console.log("Propuesta publicada...");
         this.datosGeneralesForm.reset();
       }else{

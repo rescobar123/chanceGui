@@ -22,8 +22,15 @@ export class BuscarPage implements OnInit {
   public idTipoEmpleo;
   public estado;
   public user:any;
+
+  public oficios:string;
+  public disponibilidad: string;
+  public lugares: string;
+
   datosEmpleosForm = new FormGroup({
     empleos: new FormControl(''),
+    disponibilidad: new FormControl(''),
+    lugares: new FormControl('')
   });
   public tiposEmpleos: TipoEmpleoI[] = [];
   constructor(
@@ -42,7 +49,7 @@ export class BuscarPage implements OnInit {
     this.user = this.auth.getUser();
     let idUser:string = this.user.usuario.idUsuario;
     let idPropuesta = 0;
-    this.propuestaService.getAllPropuestasWithUserTipoEmpleo(idPropuesta, 0).subscribe(data=>{
+    this.propuestaService.getAllPropuestasWithUserTipoEmpleo(idPropuesta, 0, this.oficios, this.disponibilidad, this.lugares).subscribe(data=>{
       this.empleos = data;
       console.log(this.empleos);
     });
@@ -80,7 +87,11 @@ export class BuscarPage implements OnInit {
     });
     return await modal.present();
   }
-  filtrarEmpleos(){
-    
+  filtrarEmpleos(form){
+    this.empleos = form.empleos;
+    this.disponibilidad = form.disponibilidad;
+    this.lugares = form.lugares;
+    console.log(form);
+    this.ngOnInit();
   }
 }

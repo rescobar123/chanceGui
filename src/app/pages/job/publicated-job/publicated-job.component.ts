@@ -28,7 +28,7 @@ export class PublicatedJobComponent implements OnInit {
   ngOnInit() {
     this.user = this.auth.getUser();
     let idUser:string = this.user.usuario.idUsuario;
-    this.propuestaService.getAllPropuestasWithUserTipoEmpleo(0,idUser).subscribe(data=>{
+    this.propuestaService.getAllPropuestasWithUserTipoEmpleo(0,idUser,0,0,0).subscribe(data=>{
       this.empleos = data;
       console.log(this.empleos);
     });
