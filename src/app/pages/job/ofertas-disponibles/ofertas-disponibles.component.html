@@ -3,25 +3,34 @@
     <form class="formScroll" [formGroup]=datosEmpleosForm (ngSubmit)="filtrarEmpleos(datosEmpleosForm.value)">
       <ion-grid>
         <ion-row>
-          <ion-col size="2" size-md="6">
+          <ion-col size="2" size-md="2">
             <div>
               <ion-fab-button size="small" color="ligth" (click)="ngOnInit()">
                 <ion-icon name="sync"></ion-icon>
               </ion-fab-button>
             </div>
           </ion-col>
-          <ion-col size="7" size-md="6">
+          <ion-col size="5" size-md="5">
             <ion-item>
-              <ion-label color="primary" position="stacked" class="ion-text-center">Filtra por oficios</ion-label>
-              <ion-select multiple="true" required name="empleos" formControlName="empleos" value="brown"
+              <ion-label color="primary" position="stacked" class="ion-text-center">Oficios</ion-label>
+              <ion-select multiple="true" name="empleos" formControlName="empleos" value="brown"
                 okText="Aceptar" cancelText="Cancelar">
                 <ion-select-option *ngFor="let tipoEmpleo of tiposEmpleos" value="{{tipoEmpleo.idTipoEmpleo}}">{{
                   tipoEmpleo.nombreEmpleo}}</ion-select-option>
               </ion-select>
             </ion-item>
           </ion-col>
-          <ion-col size="3" size-md="6">
-            <ion-button type="submit" [disabled]="datosEmpleosForm.invalid" size="small">Filtrar</ion-button>
+          <ion-col size="5" size-md="5">
+            <ion-item *ngFor="let deptoMuni of departamentosMunicipios">
+              <ion-label color="primary"  position="stacked" class="ion-text-center" >Lugares</ion-label>
+              <ion-select   name="lugares"
+                formControlName="lugares" value="brown" okText="Aceptar" cancelText="Cancelar">
+                <ion-select-option *ngFor="let municipio of deptoMuni.Municipios" value="{{municipio.IdMunicipio}}">{{municipio.NombreMunicipio}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+          <ion-col size="2" size-md="2">
+            <ion-button type="submit" size="small">Filtrar</ion-button>
           </ion-col>
 
         </ion-row>
@@ -50,6 +59,7 @@
 
           <b>{{trabajo | uppercase}} </b> Pago: <b> Q.{{oferta.precioPorHora}}/{{tipoPago | uppercase}}</b>
           <p>Contratacion: <b>{{contratacion}}</b></p>
+          <p>Para: <b>{{oferta.departamento.departamento}}</b></p>
           <p style="font-size: 60%; color: gray;">{{oferta.fechaCreacion | date: 'medium' }}</p>
         </ion-label>
       </ion-item>
@@ -59,10 +69,10 @@
         <ion-label>
           <b>{{trabajo | uppercase}} </b> Pago: <b> Q.{{oferta.precioPorHora}}/{{tipoPago | uppercase}}</b>
           <p>Contratacion: <b>{{contratacion}}</b></p>
+          <p>Para: <b>{{oferta.departamento.departamento}}</b></p>
           <p style="font-size: 60%; color: gray;">{{oferta.fechaCreacion | date: 'medium' }}</p>
         </ion-label>
       </ion-item>
     </div>
   </ion-list>
-
 </ion-content>

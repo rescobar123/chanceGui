@@ -45,12 +45,13 @@ export class OfertaService {
     return this.http.get<OfertaI[]>(direccion, { params });
   }
 
-  getAllOfertasPublic(tipoEmpleo:string): Observable<OfertaI[]> {
+  getAllOfertasPublic(tipoEmpleo:string, lugares:string): Observable<OfertaI[]> {
     let direccion = URL + "ofertasAll";
     let user:any = this.auth.getUser();
     let idUserCache:string = user.usuario.idUsuario;
     const params = new HttpParams()
       .set('tipoEmpleo', tipoEmpleo)
+      .set('lugares', lugares)
       .set('idUsuario', idUserCache);
     return this.http.get<OfertaI[]>(direccion, { params });
   }

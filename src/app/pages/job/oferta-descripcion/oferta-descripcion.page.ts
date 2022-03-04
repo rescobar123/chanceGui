@@ -28,6 +28,7 @@ export class OfertaDescripcionPage implements OnInit {
   public ofertaEspecifica: string;
   public fechaCreacion: string;
   public user:any;
+  public para:string;
   comentarioForm = new FormGroup({
     contenido:  new FormControl(''),
     recibeEnvia:  new FormControl(''),
@@ -69,7 +70,7 @@ export class OfertaDescripcionPage implements OnInit {
     this.precioHora = arregloInformacion[5];
     this.ofertaEspecifica = this.oferta.oferta;
     this.fechaCreacion = this.oferta.fechaCreacion;
-
+    this.para = this.oferta.departamento.departamento;
   }
 
   aplicarOferta(form:ComentarioI){

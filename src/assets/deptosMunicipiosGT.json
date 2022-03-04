@@ -1,67 +1,91 @@
 [
     {
-        "Nombre": "Alta Verapaz",
+        "Nombre": "Departamento",
         "Municipios": [
             {
-                "NombreMunicipio": "Cahabón",
+                "NombreMunicipio": "Alta Verapaz",
                 "IdMunicipio": 1
             },
             {
-                "NombreMunicipio": "Chisec",
+                "NombreMunicipio": "Baja Verapaz",
                 "IdMunicipio": 2
             },
             {
-                "NombreMunicipio": "Cobán",
+                "NombreMunicipio": "Chimaltenango",
                 "IdMunicipio": 3
             },
             {
-                "NombreMunicipio": "Lanquín",
+                "NombreMunicipio": "Chiquimula",
                 "IdMunicipio": 4
             },
             {
-                "NombreMunicipio": "Panzós",
+                "NombreMunicipio": "El progreso",
                 "IdMunicipio": 5
             },
             {
-                "NombreMunicipio": "Raxruha",
+                "NombreMunicipio": "Escuintla",
                 "IdMunicipio": 6
             },
             {
-                "NombreMunicipio": "CahSan Cristóbal Verapaz",
+                "NombreMunicipio": "Guatemala",
                 "IdMunicipio": 7
             },
             {
-                "NombreMunicipio": "San Juan Chamelco",
+                "NombreMunicipio": "Huehuetenango",
                 "IdMunicipio": 8
             },
             {
-                "NombreMunicipio": "San Pedro Carchá",
+                "NombreMunicipio": "Izabal",
                 "IdMunicipio": 9
             },
             {
-                "NombreMunicipio": "Santa Cruz Verapaz",
+                "NombreMunicipio": "Jalapa",
                 "IdMunicipio": 10
             },
             {
-                "NombreMunicipio": "Senahú",
+                "NombreMunicipio": "Jutiapa",
                 "IdMunicipio": 11
             },{
-                "NombreMunicipio": "Tactic",
+                "NombreMunicipio": "Peten",
                 "IdMunicipio": 12
             },{
-                "NombreMunicipio": "Tamahú",
+                "NombreMunicipio": "Quetzaltenango",
                 "IdMunicipio": 13
             },{
-                "NombreMunicipio": "Tucurú",
+                "NombreMunicipio": "Quiche",
                 "IdMunicipio": 14
             },
             {
-                "NombreMunicipio": "Santa Catarina La Tinta",
+                "NombreMunicipio": "Retalhuleu",
                 "IdMunicipio": 15
             },
             {
-                "NombreMunicipio": "Fray Bartolomé de las Casas",
+                "NombreMunicipio": "Sacatepequez",
                 "IdMunicipio": 16
+            },
+            {
+                "NombreMunicipio": "San Marcos",
+                "IdMunicipio": 17
+            },
+            {
+                "NombreMunicipio": "Santa Rosa",
+                "IdMunicipio": 18
+            },
+            {
+                "NombreMunicipio": "Solola",
+                "IdMunicipio": 19
+            },
+            {
+                "NombreMunicipio": "Suchitepequez",
+                "IdMunicipio": 20
+            },
+            {
+                "NombreMunicipio": "Totonicapan",
+                "IdMunicipio": 21
+            },
+            {
+                "NombreMunicipio": "Zacapa",
+                "IdMunicipio": 22
             }
 
         ]

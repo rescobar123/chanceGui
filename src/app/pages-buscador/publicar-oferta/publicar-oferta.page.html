@@ -39,6 +39,14 @@
             </ion-select>
           </ion-item>
 
+          <ion-item *ngFor="let deptoMuni of departamentosMunicipios">
+            <ion-label color="primary"  position="stacked" class="ion-text-center" >Para Donde</ion-label>
+            <ion-select   name="lugares"
+              formControlName="lugares" value="brown" okText="Aceptar" cancelText="Cancelar">
+              <ion-select-option *ngFor="let municipio of deptoMuni.Municipios" value="{{municipio.IdMunicipio}}">{{municipio.NombreMunicipio}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+
           <ion-item>
             <ion-label color="primary" position="stacked" class="ion-text-center">Cuanto tiempo:</ion-label>
             <ion-select required name="tiempo" class="form-control" formControlName="tiempo" value="brown"
