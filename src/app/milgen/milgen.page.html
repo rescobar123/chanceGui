@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar color="">
+    <ion-buttons slot="secondary">
+      <ion-button expand="block">
+        <ion-icon slot="icon-only" name="exit"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Pedido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]=registerForm (ngSubmit)="registrarUser(registerForm.value)">
+    <ion-grid>
+
+      <ion-row color="primary" justify-content-center>
+        <ion-col size size-md="6">
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Id Pedido</ion-label>
+            <ion-input name="idPedido"  placeholder="Id pedido" class="form-control" 
+            formControlName="idPedido" type="number"
+              required></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size size-md="6">
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">SKU</ion-label>
+            <ion-input name="sku"  placeholder="SKU" class="form-control" 
+            formControlName="sku" type="text"
+              required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row><ion-row color="primary" justify-content-center>
+        <ion-col size size-md="6">
+          <ion-item>
+            <ion-label color="primary"  position="stacked" class="ion-text-center">Talla</ion-label>
+            <ion-input name="talla" formControlName="talla" type="mail"
+              placeholder="talla" required></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size size-md="6">
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Precio</ion-label>
+            <ion-input name="precio" placeholder="Precio" formControlName="precio" type="text" class="form-control"
+               required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row color="primary" justify-content-center>
+        <ion-col size="12" size-md="12">
+          <ion-item>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Fecha pedido</ion-label>
+            <ion-input  name="fechaPedido" formControlName="fechaPedido" type="date" class="form-control"
+              placeholder="Fecha de Pedido" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label color="primary"  position="stacked" class="ion-text-center" >Descripcion
+              ...</ion-label>
+            <ion-textarea class="ion-text-center" required name="descripcion" class="form-control" formControlName="descripcion"
+              rows="4">
+            </ion-textarea>
+          </ion-item>
+        </ion-col>
+        
+      </ion-row>
+      <ion-row color="primary" justify-content-center>
+        <ion-col size size-md="12">
+
+          <ion-button color="success" type="submit"  expand="block">Crear
+          </ion-button>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

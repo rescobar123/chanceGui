@@ -5,22 +5,13 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   {
     path: 'chance',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
+    loadChildren: () => import('./milgen/milgen.module').then(m => m.MilgenPageModule),
     canActivate: [AuthGuard]
   },
   { 
     path: '', 
     loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
-  },
-  {
-    path: 'register',
-    loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule)
-  },
-  { path: 'publicar-oferta', loadChildren: './pages-buscador/publicar-oferta/publicar-oferta.module#PublicarOfertaPageModule' },
-  { path: 'mensajeria', loadChildren: './pages-buscador/mensajeria/mensajeria.module#MensajeriaPageModule' },
-  { path: 'oferta-descripcion', loadChildren: './pages/job/oferta-descripcion/oferta-descripcion.module#OfertaDescripcionPageModule' },
-  { path: 'mensajes-ofertas-propuestas', loadChildren: './pages-buscador/mensajeria/mensajes-ofertas-propuestas/mensajes-ofertas-propuestas.module#MensajesOfertasPropuestasPageModule' },
-  { path: 'search-job', loadChildren: './pages/search-job/search-job.module#SearchJobPageModule' }
+  }
 ];
 @NgModule({
   imports: [
