@@ -46,12 +46,15 @@ export class PropuestaService {
     return this.http.get<EmpleoI[]>(direccion, { params });
   }
 
-  getAllPropuestasWithUserTipoEmpleo(idPropuesta: any, idUsuario:any, oficios:any, dipsonibilidad:any, lugares:any): Observable<EmpleoI[]> {
+  getAllPropuestasWithUserTipoEmpleo(idPropuesta: any, idUsuario:any, oficios:any, disponibilidad:any, lugares:any): Observable<EmpleoI[]> {
     let direccion = URL + "propCreadas";
     console.log(idUsuario);
     const params = new HttpParams()
     .set('idPropuesta', idPropuesta)
-    .set('idUsuario', idUsuario);
+    .set('idUsuario', idUsuario)
+    .set('oficios', oficios)
+    .set('disponibilidad', disponibilidad)
+    .set('lugares', lugares);
     return this.http.get<EmpleoI[]>(direccion, {params});
   }
 

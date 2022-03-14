@@ -18,49 +18,51 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class BuscarPage implements OnInit {
 
-  public empleos:EmpleoI[]=[];
+  public empleos: EmpleoI[] = [];
   public idTipoEmpleo;
   public estado;
-  public user:any;
+  public user: any;
 
-  public oficios:string;
-  public disponibilidad: string;
-  public lugares: string;
+  public oficios: string = "0";
+  public disponibilidad: string = "0";
+  public lugares: string = "0";
 
   datosEmpleosForm = new FormGroup({
     empleos: new FormControl(''),
     disponibilidad: new FormControl(''),
     lugares: new FormControl('')
   });
+  public departamentosMunicipios:any;
   public tiposEmpleos: TipoEmpleoI[] = [];
   constructor(
     private propuestaService: PropuestaService,
-    private alertService:AlertService,
+    private alertService: AlertService,
     private auth: AuthService,
     private alertController: AlertController,
     private modalController: ModalController,
-    private admobService:AdmobService,
-    private wsRecursos:RecursosService 
-    ) { }
+    private admobService: AdmobService,
+    private wsRecursos: RecursosService
+  ) {
 
-  ngOnInit() {
     this.admobService.MostrarBanner();
     this.admobService.MostrarInterstitial();
-    this.user = this.auth.getUser();
-    let idUser:string = this.user.usuario.idUsuario;
-    let idPropuesta = 0;
-    this.propuestaService.getAllPropuestasWithUserTipoEmpleo(idPropuesta, 0, this.oficios, this.disponibilidad, this.lugares).subscribe(data=>{
-      this.empleos = data;
-      console.log(this.empleos);
-    });
     this.wsRecursos.getAllTiposEmpleos().subscribe(data => {
       this.tiposEmpleos = data;
       console.log(this.tiposEmpleos);
     });
   }
-  ver(empleado:EmpleoI){
-   // this.presentAlertPrompt(empleado);
-   this.presentModal(empleado);
+
+  ngOnInit() {
+    this.departamentosMunicipios =  this.wsRecursos.getAllLugares();
+    this.propuestaService.getAllPropuestasWithUserTipoEmpleo(0, 0, this.oficios, this.disponibilidad, this.lugares).subscribe(data => {
+      this.empleos = data;
+      console.log(this.empleos);
+    });
+
+  }
+  ver(empleado: EmpleoI) {
+    // this.presentAlertPrompt(empleado);
+    this.presentModal(empleado);
   }
 
   logout() {
@@ -68,30 +70,37 @@ export class BuscarPage implements OnInit {
     this.auth.logout();
   }
 
-  async presentModal(empleado:EmpleoI) {
+  async presentModal(empleado: EmpleoI) {
     const modal = await this.modalController.create({
-    component: PropuestaModalComponent,
-    componentProps: {
-      'empleado': empleado,
-    }
+      component: PropuestaModalComponent,
+      componentProps: {
+        'empleado': empleado,
+      }
     });
     return await modal.present();
   }
 
-  async presentModalContract(empleado:EmpleoI) {
+  async presentModalContract(empleado: EmpleoI) {
     const modal = await this.modalController.create({
-    component: ContratarModalComponent,
-    componentProps: {
-      'propuesta': empleado,
-    }
+      component: ContratarModalComponent,
+      componentProps: {
+        'propuesta': empleado,
+      }
     });
     return await modal.present();
   }
-  filtrarEmpleos(form){
-    this.empleos = form.empleos;
-    this.disponibilidad = form.disponibilidad;
-    this.lugares = form.lugares;
-    console.log(form);
+  filtrarEmpleos(form) {
+    if(form.empleos != ''){
+      this.oficios = form.empleos;
+    }
+    if(form.disponibilidad != ''){
+      this.disponibilidad = form.disponibilidad;
+    }
+    
+    if(form.lugares != ''){
+      this.lugares = form.lugares;
+    }
+    console.log("Ofcios " + this.oficios);
     this.ngOnInit();
   }
 }

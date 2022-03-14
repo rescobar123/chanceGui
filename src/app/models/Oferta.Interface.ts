@@ -1,5 +1,6 @@
 import { EmpleoI } from './Empleo.Interface';
 import { UsuarioI } from './Usuario.Interface';
+import { DepartamentoI } from './Departamento.Interface';
 export interface OfertaI{
     idOferta?: number,
     propuesta?: EmpleoI,
@@ -13,5 +14,7 @@ export interface OfertaI{
     estado?:number,
     usuario?:UsuarioI,
     idTipoEmpleo?:number,
-    oferta:string
+    oferta:string,
+    lugares:string,
+    departamento:DepartamentoI
 }  

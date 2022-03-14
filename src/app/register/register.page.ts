@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UsuarioI } from '../models/Usuario.Interface';
 import { AlertService } from '../services/alert.service';
 import { AuthService } from '../services/auth.service';
 import { AlertI } from '../models/complements/AlertI';
 import { RecursosService } from '../services/recursos.service';
+import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -12,8 +13,14 @@ import { RecursosService } from '../services/recursos.service';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  @ViewChild('mySlider',null)  slides: IonSlides;
   public img1: any = 0;
   public cv: any = 0;
+  public tipoCuenta:any;
+  slideOpts = {
+    initialSlide: 1,
+  };
+ 
   registerForm = new FormGroup({
     nombres:  new FormControl(''),
     apellidos: new FormControl(''),
@@ -50,7 +57,7 @@ export class RegisterPage implements OnInit {
     
     let cvImagenResized =this.wsRecurso.resizeImage(cvImagen);
     let fotoImagenResized = this.wsRecurso.resizeImage(fotoImagen);
-
+    
     form.foto = fotoImagenResized;
     form.cv = cvImagenResized;
     usuario = form;
@@ -94,6 +101,17 @@ export class RegisterPage implements OnInit {
     let fileList: FileList = event.target.files;  
     let file: File = fileList[0];
     console.log(file);
+  }
+
+  siguiente(slide:number, form:UsuarioI){
+    console.log(slide);
+    if(slide == 1){
+      console.log(this.tipoCuenta);
+    }
+    this.slides.slideNext();
+  }
+  anterior(){
+    this.slides.slidePrev();
   }
 
 }

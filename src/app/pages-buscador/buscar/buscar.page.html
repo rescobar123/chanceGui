@@ -6,7 +6,7 @@
           <ion-col size="4" size-md="4">
             <ion-item>
               <ion-label color="primary" position="stacked" class="ion-text-center">Oficios</ion-label>
-              <ion-select multiple="true" required name="empleos" formControlName="empleos" value="brown"
+              <ion-select multiple="true"  name="empleos" formControlName="empleos" value="brown"
                 okText="Aceptar" cancelText="Cancelar">
                 <ion-select-option *ngFor="let tipoEmpleo of tiposEmpleos" value="{{tipoEmpleo.idTipoEmpleo}}">{{
                   tipoEmpleo.nombreEmpleo}}</ion-select-option>
@@ -16,8 +16,9 @@
           <ion-col size="4" size-md="4">
             <ion-item>
               <ion-label color="primary" position="stacked" class="ion-text-center">Disponibilidad</ion-label>
-              <ion-select required name="disponibilidad" class="form-control" formControlName="disponibilidad"
+              <ion-select  name="disponibilidad" formControlName="disponibilidad"
                 value="brown" okText="Aceptar" cancelText="Cancelar">
+                <ion-select-option value="">Cualquiera</ion-select-option>
                 <ion-select-option value="Inmediata">Inmediata</ion-select-option>
                 <ion-select-option value="5 Dias">En 5 Dias</ion-select-option>
                 <ion-select-option value="10 Dias">En 10 Dias</ion-select-option>
@@ -26,19 +27,16 @@
             </ion-item>
           </ion-col>
           <ion-col size="4" size-md="4">
-            <ion-item>
-              <ion-label color="primary" position="stacked" class="ion-text-center">Lugares</ion-label>
-              <ion-select required name="lugares" class="form-control" formControlName="lugares"
-                value="brown" okText="Aceptar" cancelText="Cancelar">
-                <ion-select-option value="Inmediata">Inmediata</ion-select-option>
-                <ion-select-option value="5 Dias">En 5 Dias</ion-select-option>
-                <ion-select-option value="10 Dias">En 10 Dias</ion-select-option>
-                <ion-select-option value="15 Dias">En 15 Dias</ion-select-option>
+            <ion-item *ngFor="let deptoMuni of departamentosMunicipios">
+              <ion-label color="primary"  position="stacked" class="ion-text-center" >Lugares</ion-label>
+              <ion-select   name="lugares"
+                formControlName="lugares" value="brown" okText="Aceptar" cancelText="Cancelar">
+                <ion-select-option *ngFor="let municipio of deptoMuni.Municipios" value="{{municipio.IdMunicipio}}">{{municipio.NombreMunicipio}}</ion-select-option>
               </ion-select>
             </ion-item>
           </ion-col>
           <ion-col size="6" size-md="6">
-            <ion-button type="submit" [disabled]="datosEmpleosForm.invalid" size="small">Filtrar</ion-button>
+            <ion-button type="submit"  size="small">Filtrar</ion-button>
           </ion-col>
         </ion-row>
         <ion-row>
