@@ -17,38 +17,40 @@
         <ion-col size size-md="6">
           <ion-item>
             <ion-label color="primary" position="stacked" class="ion-text-center">Nombres</ion-label>
-            <ion-input name="nombres" value="{{user.nombres}}" placeholder="Mario Carlos" class="form-control" formControlName="nombres" type="text"
-              required></ion-input>
+            <ion-input name="nombres" value="{{user.nombres}}" placeholder="Mario Carlos" class="form-control"
+              formControlName="nombres" type="text" required></ion-input>
           </ion-item>
         </ion-col>
         <ion-col size size-md="6">
           <ion-item>
             <ion-label color="primary" position="stacked" class="ion-text-center">Apellidos</ion-label>
-            <ion-input name="apellidos" value="{{user.apellidos}}" placeholder="Juarez Perez" class="form-control" formControlName="apellidos" type="text"
-              required></ion-input>
+            <ion-input name="apellidos" value="{{user.apellidos}}" placeholder="Juarez Perez" class="form-control"
+              formControlName="apellidos" type="text" required></ion-input>
           </ion-item>
         </ion-col>
-      </ion-row><ion-row color="primary" justify-content-center>
-        <ion-col size size-md="6">
-          <ion-item>
-            <ion-label color="primary"  position="stacked" class="ion-text-center">Email</ion-label>
-            <ion-input name="email" value="{{user.email}}" formControlName="email" type="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-              placeholder="ejemplo@chance.com" required></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col size size-md="6">
+      </ion-row>
+      <ion-row color="primary" justify-content-center>
+        <ion-col size size-md="12">
           <ion-item>
             <ion-label color="primary" position="stacked" class="ion-text-center">Direccion</ion-label>
-            <ion-input name="direccion" value="{{user.direccion}}" placeholder="4ta. Ave. 13-15 zona 21" formControlName="direccion" type="text" class="form-control"
-               required></ion-input>
+            <ion-input name="direccion" value="{{user.direccion}}" placeholder="4ta. Ave. 13-15 zona 21"
+              formControlName="direccion" type="text" class="form-control" required></ion-input>
           </ion-item>
         </ion-col>
-      </ion-row><ion-row color="primary" justify-content-center>
+      </ion-row>
+      
+      <ion-row color="primary" justify-content-center>
         <ion-col size size-md="6">
           <ion-item>
-            <ion-label color="primary" position="stacked" class="ion-text-center">Fecha de Nacimiento</ion-label>
-            <ion-input value="{{user.fechaNacimiento}}" name="fechaNacimiento" formControlName="fechaNacimiento" type="date" class="form-control"
-              placeholder="Fecha de Nacimiento" required></ion-input>
+            <ion-label color="primary" position="stacked" class="ion-text-center">Vacuna contra covid</ion-label>
+            <ion-select required name="vacunaCovid" class="form-control" formControlName="vacunaCovid" value="default"
+              okText="Aceptar" cancelText="Cancelar">
+              <ion-select-option selected value="{{user.vacunaCovid}}" default>{{user.vacunaCovid}}</ion-select-option>
+              <ion-select-option value="Sin vacuna">Sin vacuna</ion-select-option>
+              <ion-select-option value="Primera Dosis">Primera Dosis</ion-select-option>
+              <ion-select-option value="Segunda Dosis">Segunda Dosis</ion-select-option>
+              <ion-select-option value="Tercera Dosis">Tercera Dosis</ion-select-option>
+            </ion-select>
           </ion-item>
         </ion-col>
         <ion-col size size-md="6">
@@ -64,38 +66,16 @@
             </ion-select>
           </ion-item>
         </ion-col>
-      </ion-row><ion-row color="primary" justify-content-center>
-        <ion-col size size-md="6">
-          <ion-item>
-            <ion-label color="primary" position="stacked" class="ion-text-center">Genero</ion-label>
-            <ion-select required  name="genero" class="form-control" formControlName="genero" value="default"
-              okText="Aceptar" cancelText="Cancelar">
-              <ion-select-option value="{{user.genero}}" selected>{{ user.genero }}</ion-select-option>
-              <ion-select-option value="M">M</ion-select-option>
-              <ion-select-option value="F">F</ion-select-option>
-            </ion-select>
-          </ion-item>
-        </ion-col>
-        <ion-col size size-md="6">
-          <ion-item>
-            <ion-label color="primary" position="stacked" class="ion-text-center">Vacuna contra covid</ion-label>
-            <ion-select required name="vacunaCovid" class="form-control" formControlName="vacunaCovid" value="default"
-              okText="Aceptar" cancelText="Cancelar">
-              <ion-select-option selected value="{{user.vacunaCovid}}" default>{{user.vacunaCovid}}</ion-select-option>
-              <ion-select-option value="Sin vacuna">Sin vacuna</ion-select-option>
-              <ion-select-option value="Primera Dosis">Primera Dosis</ion-select-option>
-              <ion-select-option value="Segunda Dosis">Segunda Dosis</ion-select-option>
-              <ion-select-option value="Tercera Dosis">Tercera Dosis</ion-select-option>
-            </ion-select>
-          </ion-item>
-        </ion-col>
       </ion-row>
-      
+      <ion-row color="primary" justify-content-center>
+
+      </ion-row>
+
       <ion-row color="primary" justify-content-center>
         <ion-col size size-md="6">
           <ion-item>
             <ion-input name="password" class="form-control" formControlName="password" type="password"
-              placeholder="Contrasenña" required></ion-input>
+              placeholder="Nueva Contraseña"  required></ion-input>
           </ion-item>
         </ion-col>
         <ion-col size size-md="6">
@@ -114,29 +94,27 @@
               <ion-icon lazy="true" slot="start" name="attach"></ion-icon>
               <ion-label slot="end">Fotografia...</ion-label>
             </ion-button>
-            <input   (change)="fileChange($event)" class="ion-hide" #foto
-              type="file" accept="image/png, image/jpeg">
+            <input (change)="fileChange($event)" class="ion-hide" #foto type="file" accept="image/png, image/jpeg">
           </ion-item>
         </ion-col>
-        <ion-col   size-md="12">
-          <img id="fotoImagen" src="{{ user.foto }}" width="45%" *ngIf="img1" [src]="img1"/>
+        <ion-col size-md="12">
+          <img id="fotoImagen" src="{{ user.foto }}" width="45%" *ngIf="img1" [src]="img1" />
           <br>
           <input hidden name="foto" class="form-control" formControlName="foto" *ngIf="img1" value="{{img1}}" />
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col  size-md="12">
+        <ion-col size-md="12">
           <ion-item>
             <ion-button expand="full" (click)="ccv.click()">
               <ion-icon lazy="true" slot="start" name="attach"></ion-icon>
               <ion-label slot="end">Antecedentes Penales...</ion-label>
             </ion-button>
-            <input   (change)="fileChangeCv($event)" class="ion-hide" #ccv
-              type="file" accept="image/png, image/jpeg">
+            <input (change)="fileChangeCv($event)" class="ion-hide" #ccv type="file" accept="image/png, image/jpeg">
           </ion-item>
         </ion-col>
-        <ion-col   size-md="12">
-          <img id="cvImagen"  src="{{ user.cv }}"  width="45%" *ngIf="cv" [src]="cv"/>
+        <ion-col size-md="12">
+          <img id="cvImagen" src="{{ user.cv }}" width="45%" *ngIf="cv" [src]="cv" />
           <br>
           <input hidden name="cv" class="form-control" formControlName="cv" *ngIf="cv" value="{{cv}}" />
         </ion-col>
@@ -145,7 +123,7 @@
       <ion-row color="primary" justify-content-center>
         <ion-col size size-md="12">
 
-          <ion-button color="success" type="submit"  expand="block">Actualizar
+          <ion-button color="success" type="submit" expand="block">Actualizar
           </ion-button>
         </ion-col>
 

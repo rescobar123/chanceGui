@@ -12,7 +12,17 @@ import { AlertI } from '../../models/complements/AlertI';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  public user:UsuarioI;
+  public user:UsuarioI = JSON.parse(
+   ` {
+      "apellidos": "",
+      "direccion": "",
+      "educacion": "",
+      "email": "",
+      "fechaNacimiento": "",
+      "nombres": "",
+      "vacunaCovid": ""
+  }`);
+ 
   public usuarioCache:any;
   file: File;
 
