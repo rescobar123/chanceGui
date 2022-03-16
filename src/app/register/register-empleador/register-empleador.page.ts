@@ -18,6 +18,7 @@ import { ContratarModalComponent } from '../../pages-buscador/buscar/contratar-m
   styleUrls: ['./register-empleador.page.scss'],
 })
 export class RegisterEmpleadorPage implements OnInit {
+  public img1: any = 0;
   registerForm = new FormGroup({
     nombres:  new FormControl(''),
     apellidos: new FormControl(''),
@@ -81,17 +82,16 @@ public empleos: EmpleoI[] = [];
       form.confirm = "";
       return this.alertService.presentAlertMultipleButtons("Oops!!", "Las credenciales no coinciden", "Error");
     }
-    form.rol = "empleado";
-    var cvImagen = document.getElementById("cvImagen");
+    form.rol = "empleador";
     var fotoImagen = document.getElementById("fotoImagen");
     
-    let cvImagenResized =this.wsRecurso.resizeImage(cvImagen);
     let fotoImagenResized = this.wsRecurso.resizeImage(fotoImagen);
     
     form.foto = fotoImagenResized;
-    form.cv = cvImagenResized;
+    form.fechaNacimiento = "2022-03-14";
+    form.cv = "n/a";
     usuario = form;
-    console.log(form.foto);
+    console.log(form);
     this.wsUsuario.insertarUsuario(usuario).subscribe( data => {
       let alerta:AlertI = data;
       if(alerta.tipo == "success"){
@@ -103,6 +103,19 @@ public empleos: EmpleoI[] = [];
       }
     });
 
+  }
+  fileChange(event) {
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+      reader.onload = (event:any) => {
+        this.img1 = event.target.result;
+        //console.log(this.img1);
+      }
+      reader.readAsDataURL(event.target.files[0]);  // to trigger onload
+    }
+    let fileList: FileList = event.target.files;  
+    let file: File = fileList[0];
+    console.log(file);
   }
 
 }

@@ -5,15 +5,13 @@
         <ion-row color="primary" justify-content-center>
           <ion-col size size-md="6">
             <ion-item>
-              <ion-label color="primary" position="stacked" class="ion-text-center">Nombres</ion-label>
-              <ion-input name="nombres" placeholder="Mario Carlos" class="form-control" formControlName="nombres"
+              <ion-input name="nombres" placeholder="Nombres" class="form-control" formControlName="nombres"
                 type="text" required></ion-input>
             </ion-item>
           </ion-col>
           <ion-col size size-md="6">
             <ion-item>
-              <ion-label color="primary" position="stacked" class="ion-text-center">Apellidos</ion-label>
-              <ion-input name="apellidos" placeholder="Juarez Perez" class="form-control" formControlName="apellidos"
+              <ion-input name="apellidos" placeholder="Apellidos" class="form-control" formControlName="apellidos"
                 type="text" required></ion-input>
             </ion-item>
           </ion-col>
@@ -35,15 +33,38 @@
             </ion-item>
           </ion-col>
         </ion-row>
-        <br>
+        <ion-row>
+          <ion-col size-md="6">
+            <ion-item>
+              <ion-input name="email" formControlName="email" type="mail"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="tu-email@chance.com" required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col  size-md="6">
+            <ion-item>
+              <ion-button expand="full" (click)="foto.click()">
+                <ion-icon lazy="true" slot="start" name="attach"></ion-icon>
+                <ion-label slot="end">Fotografia...</ion-label>
+              </ion-button>
+              <input (change)="fileChange($event)" class="ion-hide" #foto type="file" accept="image/png, image/jpeg">
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size-md="12">
+            <img id="fotoImagen" style="display: block; margin: auto;" width="30%" *ngIf="img1" [src]="img1" />
+            <br>
+            <input hidden name="foto" class="form-control" formControlName="foto" *ngIf="img1" value="{{img1}}" />
+          </ion-col>
+        </ion-row>
         <ion-row color="primary" justify-content-center>
           <ion-col size size-md="12">
-            <ion-button expand="block" color="tertiary" routerLink="/" routerDirection="forward">Atras</ion-button>
-            <ion-button  expand="full" color="success" type="submit" [disabled]="registerForm.invalid" expand="block">
+            <ion-button expand="block" size="small" color="tertiary" routerLink="/" routerDirection="forward">Atras</ion-button>
+            <ion-button  expand="full"size="small" color="success" type="submit" [disabled]="registerForm.invalid" expand="block">
               Crear Cuenta
             </ion-button>
           </ion-col>
-  
         </ion-row>
       </ion-grid>
   
@@ -80,7 +101,7 @@
               <ion-icon slot="start" name="eye"></ion-icon>
               Ver mas
             </ion-button>
-            <ion-button (click)="presentModalContract(empleo)" color="success">
+            <ion-button disabled (click)="presentModalContract(empleo)" color="success">
               Contratar
               <ion-icon slot="end" name="card"></ion-icon>
             </ion-button>

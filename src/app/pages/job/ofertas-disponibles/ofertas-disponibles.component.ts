@@ -63,4 +63,10 @@ export class OfertasDisponiblesComponent implements OnInit {
     
     this.ngOnInit();
   }
+
+  mostrarTodoActualizar(){
+    this.lugares = "NO";
+    this.empleos = "NO";
+    this.ngOnInit();
+  }
 }

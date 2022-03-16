@@ -15,28 +15,18 @@
           <ion-row>
             <ion-col size="12" size-md="12">
               <ion-list>
-                <ion-radio-group value="empleado">
-                    <ion-label>Tipo de Cuenta</ion-label>
-                  <ion-col size="6" size-md="6">
-                    <ion-item>
-                      <ion-label>Buscar Empleo</ion-label>
-                      <ion-radio name="rol" formControlName="rol" slot="start" value="empleado"></ion-radio>
-                    </ion-item>
-                  </ion-col>
-
-                  <ion-col size="6" size-md="6">
-                    <ion-item>
-                      <ion-label>Buscar personas (Jardineros, Payasos, etc)</ion-label>
-                      <ion-radio  name="rol" formControlName="rol" slot="start" value="empleador"></ion-radio>
-                    </ion-item>
-                  </ion-col>
+                <ion-radio-group>
+                  <ion-label>Tipo de usuario</ion-label>
+                  <br><br>
+                  <ion-button expand="block" color="tertiary"  (click)="siguiente(1,registerForm.value )" routerDirection="forward">
+                    Para trabajar</ion-button>
+                  <ion-label text-center>o</ion-label>
+                  <ion-button expand="block" color="medium" routerLink="/registerEmpleador" routerDirection="forward">
+                    Para contratar</ion-button>
                 </ion-radio-group>
               </ion-list>
             </ion-col>
           </ion-row>
-          <ion-button color="tertiary" (click)="siguiente(1,registerForm.value )">Siguiente <ion-icon name="arrow-forward">
-            </ion-icon>
-          </ion-button>
         </ion-grid>
       </ion-slide>
 
@@ -213,7 +203,7 @@
           <ion-row color="primary" justify-content-center>
             <ion-col size size-md="12">
 
-              <ion-button  expand="full" color="success" type="submit" [disabled]="registerForm.invalid" expand="block">
+              <ion-button expand="full" color="success" type="submit" [disabled]="registerForm.invalid" expand="block">
                 Crear Usuario
               </ion-button>
             </ion-col>
