@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "864968140331",
+    "project_id": "chancee",
+    "storage_bucket": "chancee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864968140331:android:8b0fe75d2ce6c8edf22c6e",
+        "android_client_info": {
+          "package_name": "chance.nueva_2022"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864968140331-7d5himstamtif6gksrekk6ke0naotvsv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoq7rcFqq3bxLDgcbx8dez9Fv6YXejoLg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "864968140331-7d5himstamtif6gksrekk6ke0naotvsv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
